@@ -1,11 +1,15 @@
-import "./assets/index.css";
+import React from "react";
+import styled from "styled-components";
+import Login from "./components/Login";
 
 function App() {
   return (
-    <div className="App">
-      <h1>sss</h1>
-    </div>
+    <Container>
+      <Login />
+    </Container>
   );
 }
 
 export default App;
+
+const Container = styled.div``;
