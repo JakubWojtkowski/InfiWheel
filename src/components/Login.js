@@ -64,8 +64,9 @@ const Main = styled.div`
   display: grid;
   grid-template-columns: 0.4fr 0.55fr;
   place-items: center;
+  grid-gap: 24px;
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 768px) {
     grid-template-columns: 1fr;
     place-items: center;
   }
@@ -81,7 +82,7 @@ const LoginImage = styled.div``;
 
 const Image = styled.img`
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
 `;
 
