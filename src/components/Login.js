@@ -1,21 +1,54 @@
-import { Apple, FacebookSharp, Google } from "@mui/icons-material";
-import React from "react";
+import {
+  Apple,
+  FacebookSharp,
+  Google,
+  Visibility,
+  VisibilityOff,
+} from "@mui/icons-material";
+import React, { useState } from "react";
 import styled from "styled-components";
+import login from "../assets/images/login.png";
 
 function Login() {
+  const [isVisibilityOff, setIsVisibilityOff] = useState(true);
+
+  const switchPassword = (e) => {
+    const password = document.querySelector("#password");
+    const type =
+      password.getAttribute("type") === "password" ? "text" : "password";
+
+    password.setAttribute("type", type);
+
+    setIsVisibilityOff(!isVisibilityOff);
+  };
+
   return (
     <Container>
       <Wrapper>
         <Main>
-          <LoginForm>
-            <Heading>Welcome back!</Heading>
-            <SubHeading>Please enter your details</SubHeading>
-            <Input type="text" placeholder="Email" name="email"></Input>
-            <Input
-              type="password"
-              placeholder="Password"
-              name="password"
-            ></Input>
+          <Form>
+            <LoginForm>
+              <Heading>Welcome back!</Heading>
+              <SubHeading>Please enter your details</SubHeading>
+              <Input
+                type="text"
+                placeholder="Email"
+                id="email"
+                required
+              ></Input>
+              <Input
+                type="password"
+                placeholder="Password"
+                id="password"
+                required
+              ></Input>
+
+              {isVisibilityOff ? (
+                <VisibilityOff onClick={switchPassword} />
+              ) : (
+                <Visibility onClick={switchPassword} />
+              )}
+            </LoginForm>
             <OptionalText password>Forgot Password?</OptionalText>
             <LoginBtn>Login</LoginBtn>
             <OptionalText>or continue with</OptionalText>
@@ -31,15 +64,15 @@ function Login() {
               </SecondaryLoginBtn>
             </LoginBtns>
             <OptionalText>
-              Don't have an account? <strong>Sign Up</strong>
+              Don't have an account?{" "}
+              <span style={{ color: "#fca311", fontWeight: "bold" }}>
+                Register now
+              </span>
             </OptionalText>
-          </LoginForm>
+          </Form>
 
           <LoginImage>
-            <Image
-              src="https://i.insider.com/60dd87bfcad1220011caf684?format=jpeg"
-              alt="login"
-            />
+            <Image src={login} alt="login" />
           </LoginImage>
         </Main>
       </Wrapper>
@@ -72,10 +105,30 @@ const Main = styled.div`
   }
 `;
 
+const Form = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+`;
+
 const LoginForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 24px;
+  position: relative;
+
+  .MuiSvgIcon-root {
+    cursor: pointer;
+    position: absolute;
+    bottom: 12px;
+    right: 16px;
+    opacity: 0.6;
+    transition: opacity 250ms ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 `;
 
 const LoginImage = styled.div``;
@@ -86,7 +139,7 @@ const Image = styled.img`
   object-fit: cover;
 `;
 
-const Heading = styled.h2`
+const Heading = styled.h1`
   font-size: 2.5rem;
   letter-spacing: 1px;
   text-align: center;
@@ -100,14 +153,15 @@ const SubHeading = styled.span`
 
 const Input = styled.input`
   font-size: 1rem;
-  width: 320px;
+  max-width: 320px;
   background: #e5e5e5;
   border: none;
-  border-bottom: 1px solid #202020;
-  padding: 0 48px 16px 0;
-  transition: padding 250ms ease-in-out;
+  border: 1px solid #202020;
+  border-radius: 32px;
+  padding: 16px 48px 16px 32px;
+  transition: all 250ms ease-in-out;
   color: #202020;
-  opacity: 0.55;
+  opacity: 0.6;
 
   &::placeholder {
     color: #202020;
@@ -115,7 +169,7 @@ const Input = styled.input`
 
   &:focus {
     outline: none;
-    padding: 0 48px 10px 0;
+    padding-left: 24px;
     opacity: 1;
   }
 `;
