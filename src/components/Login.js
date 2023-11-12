@@ -84,6 +84,7 @@ export default Login;
 
 const Container = styled.div`
   min-height: calc(100vh - 82px);
+  color: #14213d;
 `;
 
 const Wrapper = styled.div`
@@ -143,25 +144,22 @@ const Image = styled.img`
 const Heading = styled.h1`
   font-size: 2.5rem;
   letter-spacing: 1px;
-  text-align: center;
 `;
 
 const SubHeading = styled.span`
-  text-align: center;
   margin-bottom: 24px;
   opacity: 0.85;
 `;
 
 const Input = styled.input`
   font-size: 1rem;
-  ${"" /* max-width: 320px; */}
   background: #e5e5e5;
   border: none;
   border: 1px solid #202020;
   border-radius: 32px;
   padding: 16px 48px 16px 32px;
   transition: all 250ms ease-in-out;
-  color: #202020;
+  color: #14213d;
   opacity: 0.6;
 
   &::placeholder {
@@ -179,11 +177,16 @@ const LoginBtn = styled.button`
   background: #fca311;
   cursor: pointer;
   padding: 16px 32px;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 32px;
   font-weight: bold;
   letter-spacing: 0.25px;
-  color: #202020;
+  font-weight: bold;
+  transition: all 0.25s;
+  color: #14213d;
+
+  &:hover {
+  }
 `;
 
 const LoginBtns = styled.div`
