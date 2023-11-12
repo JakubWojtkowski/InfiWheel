@@ -83,25 +83,23 @@ function Login() {
 export default Login;
 
 const Container = styled.div`
-  display: grid;
-  place-items: center;
-  height: 100vh;
+  min-height: calc(100vh - 82px);
 `;
 
 const Wrapper = styled.div`
+  max-width: 1200px;
+  margin: 48px auto;
   width: 90vw;
-  margin: 0 auto;
 `;
 
 const Main = styled.div`
-  display: grid;
-  grid-template-columns: 0.4fr 0.55fr;
-  place-items: center;
-  grid-gap: 24px;
+  display: flex;
+  gap: 24px;
 
   @media only screen and (max-width: 768px) {
-    grid-template-columns: 1fr;
-    place-items: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 `;
 
@@ -109,6 +107,7 @@ const Form = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
+  flex: 0.35;
 `;
 
 const LoginForm = styled.form`
@@ -131,7 +130,9 @@ const LoginForm = styled.form`
   }
 `;
 
-const LoginImage = styled.div``;
+const LoginImage = styled.div`
+  flex: 0.65;
+`;
 
 const Image = styled.img`
   width: 100%;
@@ -153,7 +154,7 @@ const SubHeading = styled.span`
 
 const Input = styled.input`
   font-size: 1rem;
-  max-width: 320px;
+  ${"" /* max-width: 320px; */}
   background: #e5e5e5;
   border: none;
   border: 1px solid #202020;

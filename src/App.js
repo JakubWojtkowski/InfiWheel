@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import Login from "./components/Login";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <Container>
+      <Navbar />
       <Login />
     </Container>
   );
