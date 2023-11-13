@@ -186,6 +186,7 @@ const LoginBtn = styled.button`
   color: #14213d;
 
   &:hover {
+    background: #f1c47b;
   }
 `;
 
@@ -207,9 +208,14 @@ const SecondaryLoginBtn = styled.button`
   display: grid;
   place-items: center;
   color: #202020;
+  transition: all 0.25s;
 
   .MuiSvgIcon-root {
     font-size: 24px !important;
+  }
+
+  &:hover {
+    background: #f1c47b;
   }
 `;
 

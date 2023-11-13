@@ -1,22 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 
-function Home() {
+function Footer() {
   return (
     <Container>
-      <Wrapper>home</Wrapper>
+      <Wrapper>footer</Wrapper>
     </Container>
   );
 }
 
-export default Home;
+export default Footer;
 
 const Container = styled.div`
-  min-height: calc(100vh - 82px);
+  height: 164px;
+  border: 1px solid red;
 `;
 
 const Wrapper = styled.div`
   max-width: 1200px;
-  margin: 48px auto;
+  margin: 0 auto;
   width: 90vw;
 `;

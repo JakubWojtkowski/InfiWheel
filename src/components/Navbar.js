@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import logo from "../assets/images/logo.png";
+import { Link } from "react-router-dom/cjs/react-router-dom";
 
 function Navbar() {
   return (
@@ -10,7 +11,9 @@ function Navbar() {
           <img src={logo} alt="logo" />
         </Logo>
         <Menu>
-          <MenuItem active>Home</MenuItem>
+          <Link to={"/"}>
+            <MenuItem active>Home</MenuItem>
+          </Link>
           <MenuItem>About</MenuItem>
           <MenuItem>Mission</MenuItem>
           <MenuItem>Process</MenuItem>
@@ -38,7 +41,7 @@ const Nav = styled.nav`
 
 const Logo = styled.div`
   height: 82px;
-  width: 82px;
+  width: 60px;
   margin-right: 8px;
 
   img {
@@ -56,9 +59,13 @@ const Menu = styled.div`
   flex: 1;
   gap: 24px;
   color: #14213d;
+
+  a {
+    text-decoration: none;
+  }
 `;
 
-const MenuItem = styled.a`
+const MenuItem = styled.div`
   cursor: pointer;
   transition: all 0.25s ease-in-out;
   color: ${(props) => (props.active ? "#fca311" : "#14213d")};
