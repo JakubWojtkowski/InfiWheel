@@ -1,10 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import Standards from "./Standards";
 
 function Home() {
   return (
     <Container>
-      <Wrapper>home</Wrapper>
+      <Wrapper>
+        <Standards />
+      </Wrapper>
     </Container>
   );
 }
