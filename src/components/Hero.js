@@ -1,0 +1,137 @@
+import React from "react";
+import styled from "styled-components";
+import HeroImage from "../assets/images/hero.png";
+
+function Hero() {
+  return (
+    <Container>
+      <Main>
+        <Text>
+          <SubHeading>Find Your Perfect Rental with Us</SubHeading>
+          <Heading>Freedom on Four Wheels</Heading>
+          <Description>
+            Start your adventure with our exceptional rental options. Whether
+            it's a weekend getaway or a cross-country expedition, we have the
+            ideal vehicle to elevate your travel experience.
+          </Description>
+
+          <Buttons>
+            <Button>Book a car</Button>
+            <Button>See our offer </Button>
+          </Buttons>
+        </Text>
+        <ImageContent>
+          <Image src={HeroImage} alt="hero" />
+        </ImageContent>
+      </Main>
+    </Container>
+  );
+}
+
+export default Hero;
+
+const Container = styled.div`
+  min-height: calc(100vh - 82px);
+  position: relative;
+  padding: 48px 0;
+  color: #14213d;
+  display: grid;
+  place-items: center;
+`;
+
+const Main = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 24px;
+
+  @media only screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const Text = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  @media only screen and (max-width: 768px) {
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
+const ImageContent = styled.div`
+  display: grid;
+  place-items: center;
+
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const Image = styled.img`
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+`;
+
+const Heading = styled.h1`
+  font-size: clamp(1.75rem, 5vw, 3.25rem);
+
+  @media only screen and (max-width: 768px) {
+    text-align: center;
+  }
+`;
+
+const SubHeading = styled.h3`
+  opacity: 0.75;
+  font-size: clamp(0.5rem, 5vw, 1.25rem);
+`;
+
+const Description = styled.span`
+  line-height: 2;
+  z-index: 12;
+  margin-top: 24px;
+  font-size: clamp(0.75rem, 5vw, 1.25rem);
+
+  @media only screen and (max-width: 768px) {
+    text-align: center;
+  }
+`;
+
+const Buttons = styled.div`
+  display: flex;
+  gap: 24px;
+  margin-top: 72px;
+
+  @media only screen and (max-width: 768px) {
+    justify-content: center;
+  }
+`;
+
+const Button = styled.button`
+  background: #fca311;
+  padding: 16px 32px;
+  border: 1px solid transparent;
+  border-radius: 32px;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  font-weight: bold;
+  letter-spacing: 0.25px;
+  width: 180px;
+
+  &:nth-child(1):hover {
+    background: #f1c47b;
+  }
+
+  &:nth-child(2) {
+    background: #e5e5e5;
+    color: #14213d;
+    border-color: #14213d;
+
+    &:hover {
+      background: #14213d;
+      color: #fff;
+    }
+  }
+`;

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import logo from "../assets/images/logo.png";
+import logo from "../assets/images/logo2.png";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 
 function Navbar() {
@@ -41,7 +41,7 @@ const Nav = styled.nav`
 
 const Logo = styled.div`
   height: 82px;
-  width: 60px;
+  width: 86px;
   margin-right: 8px;
 
   img {

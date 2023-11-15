@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import Standards from "./Standards";
+import Hero from "./Hero";
 
 function Home() {
   return (
     <Container>
       <Wrapper>
+        <Hero />
         <Standards />
       </Wrapper>
     </Container>
@@ -20,6 +22,6 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   max-width: 1200px;
-  margin: 48px auto;
+  margin: 0px auto;
   width: 90vw;
 `;
