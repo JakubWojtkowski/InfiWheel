@@ -8,7 +8,10 @@ function Hero() {
       <Main>
         <Text>
           <SubHeading>Find Your Perfect Rental with Us</SubHeading>
-          <Heading>Freedom on Four Wheels</Heading>
+          <Heading>
+            <span>Freedom </span>
+            on Four Wheels
+          </Heading>
           <Description>
             Start your adventure with our exceptional rental options. Whether
             it's a weekend getaway or a cross-country expedition, we have the
@@ -21,6 +24,7 @@ function Hero() {
           </Buttons>
         </Text>
         <ImageContent>
+          <Blob />
           <Image src={HeroImage} alt="hero" />
         </ImageContent>
       </Main>
@@ -63,9 +67,29 @@ const Text = styled.div`
 const ImageContent = styled.div`
   display: grid;
   place-items: center;
+  position: relative;
 
   @media only screen and (max-width: 768px) {
     display: none;
+  }
+`;
+
+const Blob = styled.div`
+  border-radius: 71% 29% 63% 37% / 53% 30% 70% 47%;
+  width: 540px;
+  height: 620px;
+  background: #fca311;
+  position: absolute;
+  top: -220px;
+  right: -60px;
+  margin: 24px;
+  z-index: 0;
+
+  @media only screen and (max-width: 1200px) {
+    width: 380px;
+    height: 440px;
+    top: -40px;
+    right: -40px;
   }
 `;
 
@@ -73,10 +97,39 @@ const Image = styled.img`
   width: 100%;
   height: auto;
   object-fit: cover;
+  z-index: 1;
 `;
 
 const Heading = styled.h1`
   font-size: clamp(1.75rem, 5vw, 3.25rem);
+  z-index: 1;
+
+  span {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 92%;
+      left: 3.5px;
+      z-index: -1;
+      bottom: 8px;
+      height: 12px;
+      border-radius: 0px 0px 24px 0px;
+      background: rgb(20, 33, 61);
+      background: linear-gradient(
+        90deg,
+        rgba(20, 33, 61, 1) 0%,
+        rgba(241, 196, 123, 1) 0%,
+        rgba(252, 163, 17, 0.9472163865546218) 100%
+      );
+
+      @media only screen and (max-width: 768px) {
+        height: 8px;
+        bottom: 4px;
+      }
+    }
+  }
 
   @media only screen and (max-width: 768px) {
     text-align: center;
@@ -85,7 +138,7 @@ const Heading = styled.h1`
 
 const SubHeading = styled.h3`
   opacity: 0.75;
-  font-size: clamp(0.5rem, 5vw, 1.25rem);
+  font-size: clamp(0.75rem, 3.5vw, 1.25rem);
 `;
 
 const Description = styled.span`
@@ -119,13 +172,14 @@ const Button = styled.button`
   font-weight: bold;
   letter-spacing: 0.25px;
   width: 180px;
+  font-size: 1rem;
 
   &:nth-child(1):hover {
     background: #f1c47b;
   }
 
   &:nth-child(2) {
-    background: #e5e5e5;
+    background: #eeeeee;
     color: #14213d;
     border-color: #14213d;
 
@@ -133,5 +187,11 @@ const Button = styled.button`
       background: #14213d;
       color: #fff;
     }
+  }
+
+  @media only screen and (max-width: 600px) {
+    width: 130px;
+    font-size: 0.75rem;
+    padding: 12px 24px;
   }
 `;

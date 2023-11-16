@@ -59,6 +59,7 @@ const Menu = styled.div`
   flex: 1;
   gap: 24px;
   color: #14213d;
+  z-index: 1;
 
   a {
     text-decoration: none;
@@ -71,7 +72,6 @@ const MenuItem = styled.div`
   color: ${(props) => (props.active ? "#fca311" : "#14213d")};
 
   &:hover {
-    color: #fca311;
   }
 
   @media only screen and (max-width: 600px) {
@@ -80,9 +80,10 @@ const MenuItem = styled.div`
 `;
 
 const MenuBtn = styled.a`
-  background: #fca311;
+  background: #eeeeee;
   padding: 10px 20px;
-  margin-left: 16px;
+  border: 1px solid #14213d;
+  margin-left: 24px;
   border-radius: 32px;
   cursor: pointer;
   transition: all 0.25s;
@@ -90,7 +91,7 @@ const MenuBtn = styled.a`
   letter-spacing: 0.25px;
 
   &:hover {
-    background: #202020;
-    color: #fca311;
+    background: #14213d;
+    color: #e5e5e5;
   }
 `;

@@ -29,6 +29,12 @@ function App() {
 export default App;
 
 const Container = styled.div`
-  background: #e5e5e5;
+  background-image: radial-gradient(73% 147%, #eadfdf 59%, #ece2df 100%),
+    radial-gradient(
+      91% 146%,
+      rgba(255, 255, 255, 0.5) 47%,
+      rgba(0, 0, 0, 0.5) 100%
+    );
+  background-blend-mode: screen;
   color: #202020;
 `;
