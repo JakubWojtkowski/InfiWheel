@@ -45,7 +45,7 @@ const Container = styled.div`
 
 const Main = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.55fr 0.45fr;
   grid-gap: 24px;
 
   @media only screen and (max-width: 768px) {
@@ -98,11 +98,16 @@ const Image = styled.img`
   height: auto;
   object-fit: cover;
   z-index: 1;
+
+  @media only screen and (max-width: 1000px) {
+    width: 40vw;
+  }
 `;
 
 const Heading = styled.h1`
-  font-size: clamp(1.75rem, 5vw, 3.25rem);
+  font-size: clamp(1.75rem, 5vw, 3.5rem);
   z-index: 1;
+  font-weight: 900;
 
   span {
     position: relative;
@@ -137,7 +142,7 @@ const Heading = styled.h1`
 `;
 
 const SubHeading = styled.h3`
-  opacity: 0.75;
+  opacity: 0.65;
   font-size: clamp(0.75rem, 3.5vw, 1.25rem);
 `;
 
