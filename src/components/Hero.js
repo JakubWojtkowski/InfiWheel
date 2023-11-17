@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import HeroImage from "../assets/images/hero.png";
 import Arrow from "../assets/images/arrow.svg";
+import Chaotic from "../assets/images/chaotic.svg";
 
 function Hero() {
   return (
@@ -30,7 +31,9 @@ function Hero() {
           </Buttons>
         </Text>
         <ImageContent>
-          <Blob />
+          <Blob>
+            <ChaoticImage src={Chaotic} alt="" />
+          </Blob>
           <Image src={HeroImage} alt="hero" />
         </ImageContent>
       </Main>
@@ -111,9 +114,15 @@ const Image = styled.img`
 `;
 
 const Heading = styled.h1`
-  font-size: clamp(1.75rem, 5vw, 3.5rem);
+  font-size: clamp(1.75rem, 7.5vw, 4.5rem);
   z-index: 1;
   font-weight: 900;
+
+  @media only screen and (min-width: 768px) {
+    position: absolute;
+    top: 160px;
+    left: -2px;
+  }
 
   span {
     position: relative;
@@ -150,16 +159,23 @@ const Heading = styled.h1`
 const SubHeading = styled.h3`
   opacity: 0.65;
   font-size: clamp(0.75rem, 3.5vw, 1.25rem);
+
+  @media only screen and (min-width: 768px) {
+    margin-bottom: 48px;
+  }
 `;
 
 const Description = styled.span`
   line-height: 2;
   z-index: 12;
-  margin-top: 24px;
   font-size: clamp(0.75rem, 5vw, 1.25rem);
 
   @media only screen and (max-width: 768px) {
     text-align: center;
+  }
+
+  @media only screen and (min-width: 768px) {
+    margin-top: 64px;
   }
 `;
 
@@ -179,6 +195,21 @@ const ArrowImage = styled.img`
   position: absolute;
   bottom: 20px;
   left: -192px;
+
+  @media only screen and (max-width: 600px) {
+    left: -160px;
+    bottom: -172px;
+    transform: rotate(-90deg);
+  }
+`;
+
+const ChaoticImage = styled.img`
+  position: absolute;
+  top: 20px;
+
+  @media only screen and (max-width: 1200px) {
+    top: 80px;
+  }
 `;
 
 const Button = styled.button`
@@ -208,9 +239,9 @@ const Button = styled.button`
     }
   }
 
-  @media only screen and (max-width: 600px) {
-    width: 130px;
+  @media only screen and (max-width: 425px) {
+    width: 132px;
     font-size: 0.75rem;
-    padding: 12px 24px;
+    padding: 14px 28px;
   }
 `;
