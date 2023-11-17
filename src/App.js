@@ -35,6 +35,7 @@ const Container = styled.div`
       rgba(255, 255, 255, 0.5) 47%,
       rgba(0, 0, 0, 0.5) 100%
     );
+  overflow: hidden;
   background-blend-mode: screen;
   color: #202020;
 `;

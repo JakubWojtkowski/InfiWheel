@@ -14,9 +14,9 @@ function Navbar() {
           <Link to={"/"}>
             <MenuItem active>Home</MenuItem>
           </Link>
+          <MenuItem>Offer</MenuItem>
           <MenuItem>About</MenuItem>
           <MenuItem>Mission</MenuItem>
-          <MenuItem>Process</MenuItem>
           <MenuBtn>Let's ride</MenuBtn>
         </Menu>
       </Nav>

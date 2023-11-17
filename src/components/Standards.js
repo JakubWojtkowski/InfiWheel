@@ -6,8 +6,8 @@ function Standards() {
     <Container>
       <Heading>Elevating Standards</Heading>
       <SubHeading>
-        Reserve InfiWheel at your convenience, whether by the hour or day, and
-        pay solely for the duration you spend driving.
+        Reserve InfiWheel by the hour or day and pay only for the time you spend
+        driving.
       </SubHeading>
       <Main>
         <Item>
@@ -66,10 +66,11 @@ const Container = styled.div`
   flex-direction: column;
   gap: 24px;
   padding: 48px 0;
+  color: #14213d;
 `;
 
 const Heading = styled.h1`
-  font-size: 2.5rem;
+  font-size: 2.75rem;
   letter-spacing: 1px;
 `;
 

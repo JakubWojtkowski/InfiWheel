@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import HeroImage from "../assets/images/hero.png";
+import Arrow from "../assets/images/arrow.svg";
 
 function Hero() {
   return (
@@ -21,6 +22,11 @@ function Hero() {
           <Buttons>
             <Button>Book a car</Button>
             <Button>See our offer </Button>
+            <ArrowImage
+              src={Arrow}
+              style={{ height: 220, width: 240 }}
+              alt=""
+            />
           </Buttons>
         </Text>
         <ImageContent>
@@ -76,20 +82,20 @@ const ImageContent = styled.div`
 
 const Blob = styled.div`
   border-radius: 71% 29% 63% 37% / 53% 30% 70% 47%;
-  width: 540px;
-  height: 620px;
+  width: 640px;
+  height: 720px;
   background: #fca311;
   position: absolute;
   top: -220px;
-  right: -60px;
+  right: -180px;
   margin: 24px;
   z-index: 0;
 
   @media only screen and (max-width: 1200px) {
-    width: 380px;
-    height: 440px;
-    top: -40px;
-    right: -40px;
+    width: 520px;
+    height: 640px;
+    top: -160px;
+    right: -190px;
   }
 `;
 
@@ -160,11 +166,19 @@ const Description = styled.span`
 const Buttons = styled.div`
   display: flex;
   gap: 24px;
-  margin-top: 72px;
+  margin-top: 82px;
+  position: relative;
 
   @media only screen and (max-width: 768px) {
     justify-content: center;
   }
+`;
+
+const ArrowImage = styled.img`
+  width: 100%;
+  position: absolute;
+  bottom: 20px;
+  left: -192px;
 `;
 
 const Button = styled.button`
