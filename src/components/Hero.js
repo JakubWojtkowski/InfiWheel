@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import HeroImage from "../assets/images/hero.png";
 import Arrow from "../assets/images/arrow.svg";
-import Chaotic from "../assets/images/chaotic.svg";
 
 function Hero() {
   return (
@@ -31,9 +30,7 @@ function Hero() {
           </Buttons>
         </Text>
         <ImageContent>
-          <Blob>
-            <ChaoticImage src={Chaotic} alt="" />
-          </Blob>
+          <Blob />
           <Image src={HeroImage} alt="hero" />
         </ImageContent>
       </Main>
@@ -200,15 +197,6 @@ const ArrowImage = styled.img`
     left: -160px;
     bottom: -172px;
     transform: rotate(-90deg);
-  }
-`;
-
-const ChaoticImage = styled.img`
-  position: absolute;
-  top: 20px;
-
-  @media only screen and (max-width: 1200px) {
-    top: 80px;
   }
 `;
 
