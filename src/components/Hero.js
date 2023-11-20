@@ -111,15 +111,9 @@ const Image = styled.img`
 `;
 
 const Heading = styled.h1`
-  font-size: clamp(1.75rem, 7.5vw, 4.5rem);
+  font-size: clamp(1.75rem, 7.5vw, 5.5rem);
   z-index: 1;
   font-weight: 900;
-
-  @media only screen and (min-width: 768px) {
-    position: absolute;
-    top: 160px;
-    left: -2px;
-  }
 
   span {
     position: relative;
@@ -127,7 +121,7 @@ const Heading = styled.h1`
     &::after {
       content: "";
       position: absolute;
-      width: 92%;
+      width: 93%;
       left: 3.5px;
       z-index: -1;
       bottom: 8px;
@@ -154,32 +148,30 @@ const Heading = styled.h1`
 `;
 
 const SubHeading = styled.h3`
-  opacity: 0.65;
+  opacity: 0.55;
   font-size: clamp(0.75rem, 3.5vw, 1.25rem);
-
-  @media only screen and (min-width: 768px) {
-    margin-bottom: 48px;
-  }
 `;
 
 const Description = styled.span`
   line-height: 2;
   z-index: 12;
+  width: 85%;
   font-size: clamp(0.75rem, 5vw, 1.25rem);
+  margin-top: 12px;
 
   @media only screen and (max-width: 768px) {
     text-align: center;
   }
 
-  @media only screen and (min-width: 768px) {
-    margin-top: 64px;
+  @media only screen and (max-width: 600px) {
+    width: 100%;
   }
 `;
 
 const Buttons = styled.div`
   display: flex;
   gap: 24px;
-  margin-top: 82px;
+  margin-top: 48px;
   position: relative;
 
   @media only screen and (max-width: 768px) {
@@ -191,12 +183,12 @@ const ArrowImage = styled.img`
   width: 100%;
   position: absolute;
   bottom: 20px;
-  left: -192px;
+  left: -260px;
 
   @media only screen and (max-width: 600px) {
-    left: -160px;
-    bottom: -172px;
-    transform: rotate(-90deg);
+    left: -188px;
+    bottom: -152px;
+    transform: rotate(-75deg);
   }
 `;
 
@@ -204,7 +196,7 @@ const Button = styled.button`
   background: #fca311;
   padding: 16px 32px;
   border: 1px solid transparent;
-  border-radius: 32px;
+  border-radius: 16px;
   cursor: pointer;
   transition: all 0.25s ease-in-out;
   font-weight: bold;

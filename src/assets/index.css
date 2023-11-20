@@ -5,3 +5,17 @@
   font-family: "Lato", "Rubik", sans-serif;
   scroll-behavior: smooth;
 }
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: 0 0 5px grey;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #14213d;
+  border-radius: 8px;
+}

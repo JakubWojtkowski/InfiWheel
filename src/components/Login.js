@@ -153,14 +153,14 @@ const SubHeading = styled.span`
 
 const Input = styled.input`
   font-size: 1rem;
-  background: #e5e5e5;
+  background: transparent;
   border: none;
-  border: 1px solid #202020;
+  border: 2px solid #202020;
   border-radius: 32px;
   padding: 16px 48px 16px 32px;
   transition: all 250ms ease-in-out;
   color: #14213d;
-  opacity: 0.6;
+  opacity: 0.5;
 
   &::placeholder {
     color: #202020;

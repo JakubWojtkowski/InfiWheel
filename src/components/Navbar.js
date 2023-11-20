@@ -12,7 +12,10 @@ function Navbar() {
         </Logo>
         <Menu>
           <Link to={"/"}>
-            <MenuItem active>Home</MenuItem>
+            <MenuItem active>
+              Home
+              <Dot />
+            </MenuItem>
           </Link>
           <MenuItem>Offer</MenuItem>
           <MenuItem>About</MenuItem>
@@ -58,18 +61,18 @@ const Menu = styled.div`
   list-style: none;
   flex: 1;
   gap: 24px;
-  color: #14213d;
   z-index: 1;
 
   a {
     text-decoration: none;
+    color: #14213d;
   }
 `;
 
 const MenuItem = styled.div`
   cursor: pointer;
   transition: all 0.25s ease-in-out;
-  color: ${(props) => (props.active ? "#fca311" : "#14213d")};
+  position: relative;
 
   &:hover {
   }
@@ -79,12 +82,22 @@ const MenuItem = styled.div`
   }
 `;
 
+const Dot = styled.div`
+  position: absolute;
+  top: -4px;
+  left: 40px;
+  width: 8px;
+  height: 8px;
+  background: #fca311;
+  border-radius: 50%;
+`;
+
 const MenuBtn = styled.a`
   background: #eeeeee;
   padding: 10px 20px;
   border: 1px solid #14213d;
   margin-left: 24px;
-  border-radius: 32px;
+  border-radius: 16px;
   cursor: pointer;
   transition: all 0.25s;
   font-weight: bold;
