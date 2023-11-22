@@ -111,7 +111,7 @@ const Image = styled.img`
 `;
 
 const Heading = styled.h1`
-  font-size: clamp(1.75rem, 7.5vw, 5.5rem);
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
   z-index: 1;
   font-weight: 900;
 
@@ -149,7 +149,7 @@ const Heading = styled.h1`
 
 const SubHeading = styled.h3`
   opacity: 0.55;
-  font-size: clamp(0.75rem, 3.5vw, 1.25rem);
+  font-size: clamp(0.75rem, 3.5vw, 1.15rem);
 `;
 
 const Description = styled.span`
