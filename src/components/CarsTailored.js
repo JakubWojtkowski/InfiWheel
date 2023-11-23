@@ -1,5 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+import tailored1 from "../assets/images/tailored1.png";
+import tailored2 from "../assets/images/tailored2.png";
+import tailored3 from "../assets/images/tailored3.png";
+import tailored4 from "../assets/images/tailored4.png";
 
 function CarsTailored() {
   return (
@@ -13,43 +17,98 @@ function CarsTailored() {
       <Items>
         <ItemCard>
           <ItemCardImage>
-            <Image
-              src="https://autofarallones.com/wp-content/uploads/2018/09/Zoe1.png"
-              alt=""
-            />
+            <Image src={tailored1} alt="" />
           </ItemCardImage>
           <ItemCardTitle>Electric</ItemCardTitle>
         </ItemCard>
 
         <ItemCard>
           <ItemCardImage>
-            <Image
-              src="http://www.pngall.com/wp-content/uploads/8/SUV-Car-PNG-HD-Image.png"
-              alt=""
-            />
+            <Image src={tailored2} alt="" />
           </ItemCardImage>
           <ItemCardTitle>SUV</ItemCardTitle>
         </ItemCard>
 
         <ItemCard>
           <ItemCardImage>
-            <Image
-              src="https://www.pngkit.com/png/full/865-8651925_car-side-view-png.png"
-              alt=""
-            />
+            <Image src={tailored3} alt="" />
           </ItemCardImage>
           <ItemCardTitle>City</ItemCardTitle>
         </ItemCard>
 
         <ItemCard>
           <ItemCardImage>
-            <Image
-              src="https://pluspng.com/img-png/black-and-white-van-png-courier-van-png-transparent-image-2100.png"
-              alt=""
-            />
+            <Image src={tailored4} alt="" />
           </ItemCardImage>
-          <ItemCardTitle>VAN</ItemCardTitle>
+          <ItemCardTitle>Minivan</ItemCardTitle>
         </ItemCard>
+      </Items>
+
+      <MiniHeading>Available in your city in Poland</MiniHeading>
+      <Items>
+        <ItemCardCity>
+          <Image
+            src="https://www.goodfreephotos.com/albums/poland/warsaw/lights-of-warsaw-at-dusk.jpg"
+            alt="city"
+          />
+          <ItemCardTitle>Warszawa</ItemCardTitle>
+        </ItemCardCity>
+
+        <ItemCardCity>
+          <Image
+            src="https://www.bialystok.pl/resource/image/192/334/3818/7927/0x0.jpgg"
+            alt="city"
+          />
+          <ItemCardTitle>Bialystok</ItemCardTitle>
+        </ItemCardCity>
+
+        <ItemCardCity>
+          <Image
+            src="https://www.sundaypost.com/wp-content/uploads/sites/13/2018/03/iStock-580115446.jpg"
+            alt="city"
+          />
+          <ItemCardTitle>Kraków</ItemCardTitle>
+        </ItemCardCity>
+
+        <ItemCardCity>
+          <Image
+            src="https://tapety.tja.pl/obrazki/tja_normalne/202409.jpg"
+            alt="city"
+          />
+          <ItemCardTitle>Wroclaw</ItemCardTitle>
+        </ItemCardCity>
+
+        <ItemCardCity>
+          <Image
+            src="https://asp.katowice.pl/files/galleries/461/strefa_2.jpg"
+            alt="city"
+          />
+          <ItemCardTitle>Katowice</ItemCardTitle>
+        </ItemCardCity>
+
+        <ItemCardCity>
+          <Image
+            src="https://s.inyourpocket.com/gallery/szczecin/2021/03/waly%20chrobrego%20szczecin%20voivodeship%20office%20maritime%20akademia%20morska%20stettin%20szczecin%20poland.jpg"
+            alt="city"
+          />
+          <ItemCardTitle>Szczecin</ItemCardTitle>
+        </ItemCardCity>
+
+        <ItemCardCity>
+          <Image
+            src="https://cdn.generationvoyage.fr/2021/02/guide-poznan-1.jpg"
+            alt="city"
+          />
+          <ItemCardTitle>Poznań</ItemCardTitle>
+        </ItemCardCity>
+
+        <ItemCardCity>
+          <Image
+            src="https://tse1.mm.bing.net/th?id=OIP.YnB3w5i0UCW1Pp_XZMpWtwHaE7&pid=Api"
+            alt="city"
+          />
+          <ItemCardTitle>Gdańsk</ItemCardTitle>
+        </ItemCardCity>
       </Items>
     </Container>
   );
@@ -74,9 +133,16 @@ const Heading = styled.h1`
 `;
 
 const SubHeading = styled.span`
-  margin-bottom: 24px;
   opacity: 0.75;
   font-size: clamp(1rem, 3.5vw, 1.15rem);
+
+  @media only screen and (max-width: 768px) {
+    text-align: center;
+  }
+`;
+
+const MiniHeading = styled.h2`
+  font-size: clamp(1rem, 5vw, 2rem);
 
   @media only screen and (max-width: 768px) {
     text-align: center;
@@ -87,6 +153,7 @@ const Items = styled.div`
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-gap: 24px;
+  margin: 24px 0 36px 0;
 
   @media only screen and (max-width: 768px) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -101,6 +168,13 @@ const ItemCard = styled.div`
   display: flex;
   flex-direction: column;
   box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+`;
+
+const ItemCardCity = styled.div`
+  display: grid;
+  border-radius: 8px;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
 `;
 
 const ItemCardImage = styled.div`
@@ -118,6 +192,8 @@ const Image = styled.img`
 
 const ItemCardTitle = styled.span`
   flex: 1;
+  font-size: clamp(0.75rem, 2.5vw, 1rem);
   display: grid;
   place-items: center;
+  font-family: "Rubik";
 `;
