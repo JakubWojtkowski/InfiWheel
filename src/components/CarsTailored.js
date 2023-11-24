@@ -19,94 +19,110 @@ function CarsTailored() {
           <ItemCardImage>
             <Image src={tailored1} alt="" />
           </ItemCardImage>
-          <ItemCardTitle>Electric</ItemCardTitle>
+          <ItemCardTitleCar>Electric</ItemCardTitleCar>
         </ItemCard>
 
         <ItemCard>
           <ItemCardImage>
             <Image src={tailored2} alt="" />
           </ItemCardImage>
-          <ItemCardTitle>SUV</ItemCardTitle>
+          <ItemCardTitleCar>SUV</ItemCardTitleCar>
         </ItemCard>
 
         <ItemCard>
           <ItemCardImage>
             <Image src={tailored3} alt="" />
           </ItemCardImage>
-          <ItemCardTitle>City</ItemCardTitle>
+          <ItemCardTitleCar>City</ItemCardTitleCar>
         </ItemCard>
 
         <ItemCard>
           <ItemCardImage>
             <Image src={tailored4} alt="" />
           </ItemCardImage>
-          <ItemCardTitle>Minivan</ItemCardTitle>
+          <ItemCardTitleCar>Minivan</ItemCardTitleCar>
         </ItemCard>
       </Items>
 
       <MiniHeading>Available in your city in Poland</MiniHeading>
       <Items>
         <ItemCardCity>
-          <Image
-            src="https://www.goodfreephotos.com/albums/poland/warsaw/lights-of-warsaw-at-dusk.jpg"
-            alt="city"
-          />
+          <ItemCardImage>
+            <Image
+              src="https://www.goodfreephotos.com/albums/poland/warsaw/lights-of-warsaw-at-dusk.jpg"
+              alt="city"
+            />
+          </ItemCardImage>
           <ItemCardTitle>Warszawa</ItemCardTitle>
         </ItemCardCity>
 
         <ItemCardCity>
-          <Image
-            src="https://www.bialystok.pl/resource/image/192/334/3818/7927/0x0.jpgg"
-            alt="city"
-          />
+          <ItemCardImage>
+            <Image
+              src="https://www.bialystok.pl/resource/image/192/334/3818/7927/0x0.jpgg"
+              alt="city"
+            />
+          </ItemCardImage>
           <ItemCardTitle>Bialystok</ItemCardTitle>
         </ItemCardCity>
 
         <ItemCardCity>
-          <Image
-            src="https://www.sundaypost.com/wp-content/uploads/sites/13/2018/03/iStock-580115446.jpg"
-            alt="city"
-          />
+          <ItemCardImage>
+            <Image
+              src="https://www.sundaypost.com/wp-content/uploads/sites/13/2018/03/iStock-580115446.jpg"
+              alt="city"
+            />
+          </ItemCardImage>
           <ItemCardTitle>Kraków</ItemCardTitle>
         </ItemCardCity>
 
         <ItemCardCity>
-          <Image
-            src="https://tapety.tja.pl/obrazki/tja_normalne/202409.jpg"
-            alt="city"
-          />
+          <ItemCardImage>
+            <Image
+              src="https://tapety.tja.pl/obrazki/tja_normalne/202409.jpg"
+              alt="city"
+            />
+          </ItemCardImage>
           <ItemCardTitle>Wroclaw</ItemCardTitle>
         </ItemCardCity>
 
         <ItemCardCity>
-          <Image
-            src="https://asp.katowice.pl/files/galleries/461/strefa_2.jpg"
-            alt="city"
-          />
+          <ItemCardImage>
+            <Image
+              src="https://asp.katowice.pl/files/galleries/461/strefa_2.jpg"
+              alt="city"
+            />
+          </ItemCardImage>
           <ItemCardTitle>Katowice</ItemCardTitle>
         </ItemCardCity>
 
         <ItemCardCity>
-          <Image
-            src="https://s.inyourpocket.com/gallery/szczecin/2021/03/waly%20chrobrego%20szczecin%20voivodeship%20office%20maritime%20akademia%20morska%20stettin%20szczecin%20poland.jpg"
-            alt="city"
-          />
+          <ItemCardImage>
+            <Image
+              src="https://s.inyourpocket.com/gallery/szczecin/2021/03/waly%20chrobrego%20szczecin%20voivodeship%20office%20maritime%20akademia%20morska%20stettin%20szczecin%20poland.jpg"
+              alt="city"
+            />
+          </ItemCardImage>
           <ItemCardTitle>Szczecin</ItemCardTitle>
         </ItemCardCity>
 
         <ItemCardCity>
-          <Image
-            src="https://cdn.generationvoyage.fr/2021/02/guide-poznan-1.jpg"
-            alt="city"
-          />
+          <ItemCardImage>
+            <Image
+              src="https://cdn.generationvoyage.fr/2021/02/guide-poznan-1.jpg"
+              alt="city"
+            />
+          </ItemCardImage>
           <ItemCardTitle>Poznań</ItemCardTitle>
         </ItemCardCity>
 
         <ItemCardCity>
-          <Image
-            src="https://tse1.mm.bing.net/th?id=OIP.YnB3w5i0UCW1Pp_XZMpWtwHaE7&pid=Api"
-            alt="city"
-          />
+          <ItemCardImage>
+            <Image
+              src="https://tse1.mm.bing.net/th?id=OIP.YnB3w5i0UCW1Pp_XZMpWtwHaE7&pid=Api"
+              alt="city"
+            />
+          </ItemCardImage>
           <ItemCardTitle>Gdańsk</ItemCardTitle>
         </ItemCardCity>
       </Items>
@@ -172,8 +188,9 @@ const ItemCard = styled.div`
 
 const ItemCardCity = styled.div`
   display: grid;
-  border-radius: 8px;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.65fr 0.35fr;
+  align-items: center;
+  grid-gap: 12px;
   overflow: hidden;
 `;
 
@@ -182,6 +199,8 @@ const ItemCardImage = styled.div`
   display: grid;
   place-items: center;
   background: #e5e5e5;
+  overflow: hidden;
+  border-radius: 8px;
 `;
 
 const Image = styled.img`
@@ -193,6 +212,10 @@ const Image = styled.img`
 const ItemCardTitle = styled.span`
   flex: 1;
   font-size: clamp(0.75rem, 2.5vw, 1rem);
+  font-family: "Rubik";
+`;
+
+const ItemCardTitleCar = styled(ItemCardTitle)`
   display: grid;
   place-items: center;
   font-family: "Rubik";
