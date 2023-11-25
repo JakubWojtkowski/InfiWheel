@@ -20,6 +20,11 @@ function Navbar() {
           <MenuItem>Offer</MenuItem>
           <MenuItem>About</MenuItem>
           <MenuItem>Mission</MenuItem>
+          <HamburgerMenu>
+            <Bar />
+            <Bar />
+            <Bar />
+          </HamburgerMenu>
           <MenuBtn>Let's ride</MenuBtn>
         </Menu>
       </Nav>
@@ -40,6 +45,50 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
+`;
+
+const HamburgerMenu = styled.div`
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 4px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: none;
+
+  div:nth-child(1) {
+    width: 24px;
+  }
+  div:nth-child(2) {
+    width: 36px;
+  }
+
+  &:hover {
+    div:nth-child(1) {
+      width: 32px;
+    }
+
+    div:nth-child(2) {
+      width: 24px;
+    }
+
+    div:nth-child(3) {
+      width: 36px;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    display: flex;
+  }
+`;
+
+const Bar = styled.div`
+  width: 32px;
+  background: #14213d;
+  height: 4px;
+  transition: all 250ms ease-in-out;
+  border-radius: 4px;
 `;
 
 const Logo = styled.div`
@@ -67,6 +116,10 @@ const Menu = styled.div`
     text-decoration: none;
     color: #14213d;
   }
+
+  @media only screen and (max-width: 768px) {
+    gap: 0px;
+  }
 `;
 
 const MenuItem = styled.div`
@@ -77,7 +130,7 @@ const MenuItem = styled.div`
   &:hover {
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 768px) {
     display: none;
   }
 `;

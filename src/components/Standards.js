@@ -17,8 +17,7 @@ function Standards() {
           />
           <Title>24/7 Accessibility</Title>
           <Description>
-            lapsflaofkaof asa avsvl oa salfnv agsmgk asf;k afm kafmnaf xmxkmaf
-            af afaf.
+            Connect with us anytime and anywhere you are
           </Description>
         </Item>
         <Item>
@@ -28,8 +27,7 @@ function Standards() {
           />
           <Title>Cars near you</Title>
           <Description>
-            lapsflaofkaof asa avsvl oa salfnv agsmgk asf;k afm kafmnaf xmxkmaf
-            af afaf.
+            Explore cars nearby with easy access from any location
           </Description>
         </Item>
         <Item>
@@ -39,8 +37,7 @@ function Standards() {
           />
           <Title>Save money</Title>
           <Description>
-            lapsflaofkaof asa avsvl oa salfnv agsmgk asf;k afm kafmnaf xmxkmaf
-            af afaf.
+            InfiWheel covers gas, and insurance for your car
           </Description>
         </Item>
         <Item>
@@ -49,10 +46,7 @@ function Standards() {
             alt="item"
           />
           <Title>Go beyond public transit</Title>
-          <Description>
-            lapsflaofkaof asa avsvl oa salfnv agsmgk asf;k afm kafmnaf xmxkmaf
-            af afaf.
-          </Description>
+          <Description>Perfect complement to the bus and train</Description>
         </Item>
       </Main>
     </Container>
@@ -100,7 +94,6 @@ const Main = styled.div`
 const Item = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 4px;
 `;
@@ -111,7 +104,9 @@ const ItemImage = styled.img`
   margin-bottom: 12px;
 `;
 
-const Title = styled.h4``;
+const Title = styled.h4`
+  text-align: center;
+`;
 
 const Description = styled.span`
   text-align: center;

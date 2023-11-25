@@ -1,9 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import tailored1 from "../assets/images/tailored1.png";
-import tailored2 from "../assets/images/tailored2.png";
-import tailored3 from "../assets/images/tailored3.png";
-import tailored4 from "../assets/images/tailored4.png";
+import CarTailored from "./CarTailored";
+import cars from "../CarsTailored.json";
 
 function CarsTailored() {
   return (
@@ -15,33 +13,9 @@ function CarsTailored() {
       </SubHeading>
 
       <Items>
-        <ItemCard>
-          <ItemCardImage>
-            <Image src={tailored1} alt="" />
-          </ItemCardImage>
-          <ItemCardTitleCar>Electric</ItemCardTitleCar>
-        </ItemCard>
-
-        <ItemCard>
-          <ItemCardImage>
-            <Image src={tailored2} alt="" />
-          </ItemCardImage>
-          <ItemCardTitleCar>SUV</ItemCardTitleCar>
-        </ItemCard>
-
-        <ItemCard>
-          <ItemCardImage>
-            <Image src={tailored3} alt="" />
-          </ItemCardImage>
-          <ItemCardTitleCar>City</ItemCardTitleCar>
-        </ItemCard>
-
-        <ItemCard>
-          <ItemCardImage>
-            <Image src={tailored4} alt="" />
-          </ItemCardImage>
-          <ItemCardTitleCar>Minivan</ItemCardTitleCar>
-        </ItemCard>
+        {cars.map((car, index) => {
+          return <CarTailored key={index} name={car.name} image={car.image} />;
+        })}
       </Items>
 
       <MiniHeading>Available in your city in Poland</MiniHeading>
@@ -49,7 +23,7 @@ function CarsTailored() {
         <ItemCardCity>
           <ItemCardImage>
             <Image
-              src="https://www.goodfreephotos.com/albums/poland/warsaw/lights-of-warsaw-at-dusk.jpg"
+              src="https://www.pologne.travel/images/fr-BE/miasta/Warszawa/1170/MIASTA_ALL%20(51)-1170.jpg"
               alt="city"
             />
           </ItemCardImage>
@@ -177,18 +151,9 @@ const Items = styled.div`
   }
 `;
 
-const ItemCard = styled.div`
-  border-radius: 8px;
-  overflow: hidden;
-  height: 240px;
-  display: flex;
-  flex-direction: column;
-  box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
-`;
-
 const ItemCardCity = styled.div`
   display: grid;
-  grid-template-columns: 0.65fr 0.35fr;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
   grid-gap: 12px;
   overflow: hidden;
@@ -212,11 +177,5 @@ const Image = styled.img`
 const ItemCardTitle = styled.span`
   flex: 1;
   font-size: clamp(0.75rem, 2.5vw, 1rem);
-  font-family: "Rubik";
-`;
-
-const ItemCardTitleCar = styled(ItemCardTitle)`
-  display: grid;
-  place-items: center;
   font-family: "Rubik";
 `;

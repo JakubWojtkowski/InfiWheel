@@ -73,6 +73,8 @@ const Main = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 96px;
+  gap: 12px;
+  flex-wrap: wrap;
 `;
 
 const Item = styled.div`

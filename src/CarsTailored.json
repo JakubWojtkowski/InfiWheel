@@ -1,0 +1,17 @@
+[{
+    "image": "../images/tailored1.png",
+    "name": "Electric"
+  },
+  {
+    "image": "../images/tailored2.png",
+    "name": "SUV"
+  },
+  {
+    "image": "../images/tailored3.png",
+    "name": "City"
+  },
+  {
+    "image": "../images/tailored4.png",
+    "name": "Minivan"
+  }
+]
