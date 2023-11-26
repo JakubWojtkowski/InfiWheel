@@ -20,7 +20,7 @@ const ItemCard = styled.div`
   height: 240px;
   display: flex;
   flex-direction: column;
-  box-shadow: rgba(33, 35, 38, 0.1) 0px 5px 5px -5px;
+  box-shadow: rgba(33, 35, 38, 0.1) 0px 6px 6px -4px;
 `;
 
 const ItemCardImage = styled.div`

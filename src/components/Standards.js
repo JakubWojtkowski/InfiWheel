@@ -11,42 +11,44 @@ function Standards() {
       </SubHeading>
       <Main>
         <Item>
-          <ItemImage
-            src="https://cdn-icons-png.flaticon.com/512/557/557033.png"
-            alt="item"
-          />
+          <ItemImage>
+            <Image src="../images/standards_access.png" alt="item" />
+          </ItemImage>
           <Title>24/7 Accessibility</Title>
           <Description>
-            Connect with us anytime and anywhere you are
+            <span>Connect with us </span>anytime and anywhere you are
           </Description>
         </Item>
+
         <Item>
-          <ItemImage
-            src="https://cdn-icons-png.flaticon.com/512/557/557033.png"
-            alt="item"
-          />
+          <ItemImage>
+            <Image src="../images/standards_cars.png" alt="item" />
+          </ItemImage>
           <Title>Cars near you</Title>
           <Description>
-            Explore cars nearby with easy access from any location
+            Explore cars nearby with <span> easy access</span> from any location
           </Description>
         </Item>
+
         <Item>
-          <ItemImage
-            src="https://cdn-icons-png.flaticon.com/512/557/557033.png"
-            alt="item"
-          />
+          <ItemImage>
+            <Image src="../images/standards_save.png" alt="item" />
+          </ItemImage>
           <Title>Save money</Title>
           <Description>
-            InfiWheel covers gas, and insurance for your car
+            InfiWheel covers gas, and <span> insurance</span> for your car
           </Description>
         </Item>
+
         <Item>
-          <ItemImage
-            src="https://cdn-icons-png.flaticon.com/512/557/557033.png"
-            alt="item"
-          />
+          <ItemImage>
+            <Image src="../images/standards_public.png" alt="item" />
+          </ItemImage>
+
           <Title>Go beyond public transit</Title>
-          <Description>Perfect complement to the bus and train</Description>
+          <Description>
+            <span>Perfect complement</span> to the bus and train
+          </Description>
         </Item>
       </Main>
     </Container>
@@ -92,22 +94,38 @@ const Main = styled.div`
 `;
 
 const Item = styled.div`
+  border-radius: 8px;
+  overflow: hidden;
+  height: 320px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 4px;
 `;
 
-const ItemImage = styled.img`
-  width: 10vw;
+const ItemImage = styled.div`
+  height: 80%;
+  display: grid;
+  place-items: center;
+  background: #e5e5e5;
+  overflow: hidden;
+  border-radius: 8px;
+`;
+
+const Image = styled.img`
+  width: 95%;
   height: auto;
-  margin-bottom: 12px;
+  object-fit: cover;
 `;
 
 const Title = styled.h4`
   text-align: center;
+  margin-bottom: 8px;
 `;
 
 const Description = styled.span`
   text-align: center;
+
+  span {
+    color: #fca311;
+    font-weight: 600;
+  }
 `;

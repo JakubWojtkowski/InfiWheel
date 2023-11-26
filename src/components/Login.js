@@ -7,7 +7,6 @@ import {
 } from "@mui/icons-material";
 import React, { useState } from "react";
 import styled from "styled-components";
-import login from "../assets/images/login.png";
 
 function Login() {
   const [isVisibilityOff, setIsVisibilityOff] = useState(true);
@@ -72,7 +71,7 @@ function Login() {
           </Form>
 
           <LoginImage>
-            <Image src={login} alt="login" />
+            <Image src="../images/login.png" alt="login" />
           </LoginImage>
         </Main>
       </Wrapper>

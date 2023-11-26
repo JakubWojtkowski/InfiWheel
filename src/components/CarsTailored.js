@@ -172,6 +172,11 @@ const Image = styled.img`
   width: 100%;
   height: auto;
   object-fit: cover;
+  transition: scale 0.5s ease-in-out;
+
+  &:hover {
+    scale: 1.1;
+  }
 `;
 
 const ItemCardTitle = styled.span`

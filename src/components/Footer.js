@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import logo from "../assets/images/logo.png";
 import {
   FacebookSharp,
   Instagram,
@@ -14,7 +13,7 @@ function Footer() {
       <Wrapper>
         <Main>
           <Item>
-            <img src={logo} alt="logo-footer" />
+            <img src="../images/logo.png" alt="logo-footer" />
           </Item>
           <Item>
             <ItemHeading>Explore</ItemHeading>
@@ -58,6 +57,7 @@ export default Footer;
 
 const Container = styled.div`
   background: #14213d;
+  margin-top: 48px;
   border-radius: 64px 64px 0 0;
   color: #eeeeee;
 `;

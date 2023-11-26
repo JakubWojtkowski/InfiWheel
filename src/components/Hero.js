@@ -1,7 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import HeroImage from "../assets/images/hero.png";
-import Arrow from "../assets/images/arrow.svg";
 
 function Hero() {
   return (
@@ -23,7 +21,7 @@ function Hero() {
             <Button>Book a car</Button>
             <Button>See our offer </Button>
             <ArrowImage
-              src={Arrow}
+              src="../images/arrow.svg"
               style={{ height: 220, width: 240 }}
               alt=""
             />
@@ -31,7 +29,7 @@ function Hero() {
         </Text>
         <ImageContent>
           <Blob />
-          <Image src={HeroImage} alt="hero" />
+          <Image src="../images/hero.png" alt="hero" />
         </ImageContent>
       </Main>
     </Container>
@@ -83,19 +81,19 @@ const ImageContent = styled.div`
 const Blob = styled.div`
   border-radius: 71% 29% 63% 37% / 53% 30% 70% 47%;
   width: 640px;
-  height: 720px;
+  height: 640px;
   background: #fca311;
   position: absolute;
-  top: -220px;
+  top: -132px;
   right: -180px;
   margin: 24px;
   z-index: 0;
 
   @media only screen and (max-width: 1200px) {
-    width: 520px;
-    height: 640px;
-    top: -160px;
-    right: -190px;
+    width: 500px;
+    height: 620px;
+    top: -100px;
+    right: -170px;
   }
 `;
 
@@ -122,10 +120,10 @@ const Heading = styled.h1`
       content: "";
       position: absolute;
       width: 93%;
-      left: 3.5px;
+      left: 4px;
       z-index: -1;
-      bottom: 8px;
-      height: 12px;
+      bottom: 12px;
+      height: 20px;
       border-radius: 0px 0px 24px 0px;
       background: rgb(20, 33, 61);
       background: linear-gradient(
@@ -136,7 +134,7 @@ const Heading = styled.h1`
       );
 
       @media only screen and (max-width: 768px) {
-        height: 8px;
+        height: 12px;
         bottom: 4px;
       }
     }
@@ -209,13 +207,13 @@ const Button = styled.button`
   }
 
   &:nth-child(2) {
-    background: #eeeeee;
-    color: #14213d;
+    background: #14213d;
+    color: #fff;
     border-color: #14213d;
 
     &:hover {
-      background: #14213d;
-      color: #fff;
+      background: #eeeeee;
+      color: #14213d;
     }
   }
 
