@@ -193,7 +193,7 @@ const ArrowImage = styled.img`
 const Button = styled.button`
   background: #fca311;
   padding: 16px 32px;
-  border: 1px solid transparent;
+  border: 1px solid #14213d;
   border-radius: 16px;
   cursor: pointer;
   transition: all 0.25s ease-in-out;
@@ -209,7 +209,6 @@ const Button = styled.button`
   &:nth-child(2) {
     background: #14213d;
     color: #fff;
-    border-color: #14213d;
 
     &:hover {
       background: #eeeeee;

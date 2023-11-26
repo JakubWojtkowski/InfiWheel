@@ -132,6 +132,10 @@ const LoginForm = styled.form`
 
 const LoginImage = styled.div`
   flex: 0.65;
+
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const Image = styled.img`

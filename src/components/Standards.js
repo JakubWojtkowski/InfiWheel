@@ -99,6 +99,7 @@ const Item = styled.div`
   height: 320px;
   display: flex;
   flex-direction: column;
+  gap: 12px;
 `;
 
 const ItemImage = styled.div`
@@ -118,7 +119,6 @@ const Image = styled.img`
 
 const Title = styled.h4`
   text-align: center;
-  margin-bottom: 8px;
 `;
 
 const Description = styled.span`

@@ -114,7 +114,7 @@ const Container = styled.div`
   color: #14213d;
 `;
 
-const Heading = styled.h1`
+const Heading = styled.h2`
   font-size: clamp(1.5rem, 5vw, 2.75rem);
 
   @media only screen and (max-width: 768px) {

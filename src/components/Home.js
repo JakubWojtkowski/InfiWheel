@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Standards from "./Standards";
 import Hero from "./Hero";
 import CarsTailored from "./CarsTailored";
+import DownloadApp from "./DownloadApp";
 
 function Home() {
   return (
@@ -11,6 +12,7 @@ function Home() {
         <Hero />
         <CarsTailored />
         <Standards />
+        <DownloadApp />
       </Wrapper>
     </Container>
   );

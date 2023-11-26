@@ -19,12 +19,13 @@ function Navbar() {
           <MenuItem>Offer</MenuItem>
           <MenuItem>About</MenuItem>
           <MenuItem>Mission</MenuItem>
+          <MenuBtn>Let's ride</MenuBtn>
+
           <HamburgerMenu>
             <Bar />
             <Bar />
             <Bar />
           </HamburgerMenu>
-          <MenuBtn>Let's ride</MenuBtn>
         </Menu>
       </Nav>
     </Container>
@@ -55,12 +56,13 @@ const HamburgerMenu = styled.div`
   height: 40px;
   cursor: pointer;
   display: none;
+  margin-left: 24px;
 
   div:nth-child(1) {
-    width: 24px;
+    width: 16px;
   }
   div:nth-child(2) {
-    width: 36px;
+    width: 24px;
   }
 
   &:hover {
@@ -73,7 +75,7 @@ const HamburgerMenu = styled.div`
     }
 
     div:nth-child(3) {
-      width: 36px;
+      width: 16px;
     }
   }
 
