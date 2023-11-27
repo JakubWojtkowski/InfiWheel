@@ -4,12 +4,10 @@ import styled from "styled-components";
 function DownloadApp() {
   return (
     <Container>
-      <Heading>
-        Book a ride and be on your way<br></br> in just a few minutes
-      </Heading>
+      <Heading>Book a car and be on your way</Heading>
       <SubHeading>
-        Experience seamless convenience at your fingertips—download our mobile
-        app now from our website and unlock a world of possibilities!
+        Experience seamless convenience at your fingertips<br></br>—download our
+        mobile app now from our website and unlock a world of possibilities!
       </SubHeading>
       <DownloadButton>Download the App</DownloadButton>
 
@@ -24,10 +22,7 @@ function DownloadApp() {
           Available for all <br></br>phones on <span>IOS</span> and
           <span> Android</span>
         </Text>
-        <ButtonsLinks>
-          <Link src="" alt="" />
-          <Link src="" alt="" />
-        </ButtonsLinks>
+        <ButtonLink />
       </Links>
     </Container>
   );
@@ -86,6 +81,9 @@ const DownloadButton = styled.button`
 
 const Links = styled.div`
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
 `;
 
 const Text = styled.span`
@@ -98,9 +96,14 @@ const Text = styled.span`
   }
 `;
 
-const ButtonsLinks = styled.div`
-  display: flex;
-  gap: 12px;
-`;
+const ButtonLink = styled.div`
+  width: 380px;
+  height: 8vh;
+  background: url("../images/download-app-store.png") center no-repeat;
+  background-size: cover;
 
-const Link = styled.img``;
+  @media only screen and (max-width: 768px) {
+    width: 300px;
+    height: 6vh;
+  }
+`;
