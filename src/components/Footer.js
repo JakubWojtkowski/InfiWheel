@@ -57,7 +57,7 @@ export default Footer;
 
 const Container = styled.div`
   background: #14213d;
-  margin-top: 48px;
+  margin-top: 96px;
   border-radius: 64px 64px 0 0;
   color: #eeeeee;
 `;

@@ -31,7 +31,6 @@ function DownloadApp() {
 export default DownloadApp;
 
 const Container = styled.div`
-  margin: 48px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -67,7 +66,7 @@ const DownloadButton = styled.button`
   background: #fca311;
   padding: 16px 32px;
   border-radius: 16px;
-  border: 1px solid #14213d;
+  border: none;
   cursor: pointer;
   transition: all 0.25s ease-in-out;
   font-weight: bold;

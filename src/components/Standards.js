@@ -61,7 +61,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
-  padding: 48px 0;
   color: #14213d;
 `;
 

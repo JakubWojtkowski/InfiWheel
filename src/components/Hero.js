@@ -41,7 +41,6 @@ export default Hero;
 const Container = styled.div`
   min-height: calc(100vh - 82px);
   position: relative;
-  padding: 48px 0;
   color: #14213d;
   display: grid;
   place-items: center;
@@ -109,9 +108,10 @@ const Image = styled.img`
 `;
 
 const Heading = styled.h1`
-  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  font-size: clamp(3rem, 7vw, 6rem);
   z-index: 1;
   font-weight: 900;
+  letter-spacing: -1px;
 
   span {
     position: relative;
