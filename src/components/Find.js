@@ -16,6 +16,9 @@ function Find() {
         <Button>Get started now</Button>
         <Button learn>Learn about renting</Button>
       </Buttons>
+      <MiniFooter>
+        Do you want to rent your car? <a href="login">Join InfiWheel</a>
+      </MiniFooter>
     </Container>
   );
 }
@@ -52,7 +55,7 @@ const Description = styled.span`
 `;
 
 const Buttons = styled.div`
-  margin-top: 24px;
+  margin: 24px 0;
   display: flex;
   gap: 12px;
 `;
@@ -68,4 +71,17 @@ const Button = styled.button`
   letter-spacing: 0.25px;
   font-size: 1rem;
   transition: all 250ms ease-in-out;
+
+  &:hover {
+    background: ${(props) => (props.learn ? "#14213d" : "#f1c47b")};
+    color: ${(props) => (props.learn ? "#fff" : "#14213d")};
+  }
+`;
+
+const MiniFooter = styled.span`
+  font-size: clamp(0.75rem, 4vw, 1.25rem);
+
+  a {
+    color: #14213d;
+  }
 `;

@@ -9,7 +9,6 @@ function DownloadApp() {
         Experience seamless convenience at your fingertips<br></br>—download our
         mobile app now from our website and unlock a world of possibilities!
       </SubHeading>
-      <DownloadButton>Download the App</DownloadButton>
 
       <img
         src="https://images.ctfassets.net/ckse46n1g03h/5mPPTj9DgHWtqeATyT4yo8/837805d786ee04e3d1ccb7c1a8ef5c02/bolt-app-hero.png"
@@ -17,6 +16,7 @@ function DownloadApp() {
         alt=""
       />
 
+      <DownloadButton>Download the App</DownloadButton>
       <Links>
         <Text>
           Available for all <br></br>phones on <span>IOS</span> and

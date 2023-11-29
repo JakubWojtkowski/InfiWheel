@@ -135,10 +135,6 @@ const MenuItem = styled.div`
       width: 32px;
     }
   }
-
-  @media only screen and (max-width: 768px) {
-    display: none;
-  }
 `;
 
 const Dot = styled.div`
@@ -164,6 +160,6 @@ const MenuBtn = styled.a`
 
   &:hover {
     background: #14213d;
-    color: #e5e5e5;
+    color: #fff;
   }
 `;
