@@ -5,12 +5,14 @@ import Hero from "./Hero";
 import CarsTailored from "./CarsTailored";
 import DownloadApp from "./DownloadApp";
 import Find from "./Find";
+import About from "./About";
 
 function Home() {
   return (
     <Container>
       <Wrapper>
         <Hero />
+        <About />
         <CarsTailored />
         <Standards />
         <Find />

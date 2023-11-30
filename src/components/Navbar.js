@@ -59,15 +59,15 @@ const HamburgerMenu = styled.div`
   margin-left: 24px;
 
   div:nth-child(1) {
-    width: 16px;
-  }
-  div:nth-child(2) {
     width: 24px;
+  }
+  div:nth-child(3) {
+    width: 16px;
   }
 
   &:hover {
     div:nth-child(1) {
-      width: 32px;
+      width: 16px;
     }
 
     div:nth-child(2) {
@@ -75,7 +75,7 @@ const HamburgerMenu = styled.div`
     }
 
     div:nth-child(3) {
-      width: 16px;
+      width: 32px;
     }
   }
 
@@ -134,6 +134,10 @@ const MenuItem = styled.div`
     p:nth-child(1) {
       width: 32px;
     }
+  }
+
+  @media only screen and (max-width: 768px) {
+    display: none;
   }
 `;
 

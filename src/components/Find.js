@@ -5,7 +5,8 @@ function Find() {
   return (
     <Container>
       <BigHeading>
-        Start renting <br></br>a car today
+        Start <span>renting</span>
+        <br></br>a car today
       </BigHeading>
       <Description>
         Maximize the potential of your vehicle - start renting a car today! Join
@@ -31,12 +32,21 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   gap: 24px;
+  color: #14213d;
 `;
 
 const BigHeading = styled.h2`
   text-align: center;
   font-size: clamp(3rem, 5vw, 5vw);
   letter-spacing: -1px;
+  z-index: 1;
+
+  span {
+    position: relative;
+    color: #eee;
+    background: url("../images/find.svg");
+    background-size: cover;
+  }
 `;
 
 const Description = styled.span`
@@ -57,11 +67,16 @@ const Description = styled.span`
 const Buttons = styled.div`
   margin: 24px 0;
   display: flex;
-  gap: 12px;
+  gap: 24px;
+
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+  }
 `;
 
 const Button = styled.button`
-  background: ${(props) => (props.learn ? "#fff" : "#fca311")};
+  background: ${(props) => (props.learn ? "#fff" : "#14213d")};
+  color: ${(props) => (props.learn ? "#14213d" : "#eee")};
   padding: 16px 32px;
   border-radius: 16px;
   border: 1px solid #14213d;
@@ -73,8 +88,8 @@ const Button = styled.button`
   transition: all 250ms ease-in-out;
 
   &:hover {
-    background: ${(props) => (props.learn ? "#14213d" : "#f1c47b")};
-    color: ${(props) => (props.learn ? "#fff" : "#14213d")};
+    background: ${(props) => (props.learn ? "#14213d" : "#14213d")};
+    color: ${(props) => (props.learn ? "#fff" : "#fff")};
   }
 `;
 
