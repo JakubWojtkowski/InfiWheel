@@ -12,29 +12,42 @@ function Footer() {
     <Container>
       <Wrapper>
         <Main>
-          <Item>
-            <img src="../images/logo.png" alt="logo-footer" />
-          </Item>
-          <Item>
-            <ItemHeading>Explore</ItemHeading>
-            <ItemContent>Car fleet</ItemContent>
-            <ItemContent>Why Us?</ItemContent>
+          <MainTop>
+            <Heading>
+              What are you <br></br> waiting for?
+            </Heading>
+            <Buttons>
+              <Button>Book now</Button>
+              <Button learn>Learn more</Button>
+            </Buttons>
+          </MainTop>
 
-            <ItemContent>Cars near you</ItemContent>
-          </Item>
-          <Item>
-            <ItemHeading>Resources</ItemHeading>
-            <ItemContent>Help center</ItemContent>
-            <ItemContent>Pricing</ItemContent>
-            <ItemContent>Contact</ItemContent>
-            <ItemContent>Community</ItemContent>
-          </Item>
-          <Item>
-            <ItemHeading>Company</ItemHeading>
-            <ItemContent>Terms & Conditions</ItemContent>
-            <ItemContent>Privacy</ItemContent>
-          </Item>
+          <MainBottom>
+            <Item>
+              <img src="../images/logo.png" alt="logo-footer" />
+            </Item>
+            <Item>
+              <ItemHeading>Explore</ItemHeading>
+              <ItemContent>Car fleet</ItemContent>
+              <ItemContent>Why Us?</ItemContent>
+
+              <ItemContent>Cars near you</ItemContent>
+            </Item>
+            <Item>
+              <ItemHeading>Resources</ItemHeading>
+              <ItemContent>Help center</ItemContent>
+              <ItemContent>Pricing</ItemContent>
+              <ItemContent>Contact</ItemContent>
+              <ItemContent>Community</ItemContent>
+            </Item>
+            <Item>
+              <ItemHeading>Company</ItemHeading>
+              <ItemContent>Terms & Conditions</ItemContent>
+              <ItemContent>Privacy</ItemContent>
+            </Item>
+          </MainBottom>
         </Main>
+
         <Bottom>
           <Copyright>
             InfiWheel &copy; 2023.
@@ -71,9 +84,10 @@ const Wrapper = styled.div`
 
 const Main = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   margin-bottom: 96px;
-  gap: 12px;
+  gap: 64px;
   flex-wrap: wrap;
 `;
 
@@ -117,4 +131,49 @@ const Socials = styled.div`
   .MuiSvgIcon-root {
     cursor: pointer;
   }
+`;
+
+const MainTop = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+  }
+`;
+
+const MainBottom = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding: 24px;
+`;
+
+const Heading = styled.h2`
+  font-size: clamp(3rem, 5vw, 5vw);
+  letter-spacing: -1px;
+`;
+
+const Buttons = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+`;
+
+const Button = styled.button`
+  background: ${(props) => (props.learn ? "#14213d" : "#fca311")};
+  color: ${(props) => (props.learn ? "#fff" : "#14213d")};
+  padding: 16px 32px;
+  border: 1px solid transparent;
+  border-color: ${(props) => (props.learn ? "#fff" : "transparent")};
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  font-weight: bold;
+  letter-spacing: 0.25px;
+  width: 180px;
+  font-size: 1rem;
 `;

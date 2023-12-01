@@ -8,8 +8,7 @@ function Hero() {
         <Text>
           <SubHeading>Find Your Perfect Rental with Us</SubHeading>
           <Heading>
-            <span>Freedom </span>
-            on Four Wheels
+            <span>Freedom </span>with InfiWheel
           </Heading>
           <Description>
             Start your adventure with our exceptional rental options. Whether
@@ -30,6 +29,7 @@ function Hero() {
         <ImageContent>
           <Blob />
           <Image src="../images/hero.png" alt="hero" />
+          <HeadingSecond>InfiWheel</HeadingSecond>
         </ImageContent>
       </Main>
     </Container>
@@ -72,6 +72,9 @@ const ImageContent = styled.div`
   place-items: center;
   position: relative;
 
+  span {
+  }
+
   @media only screen and (max-width: 768px) {
     display: none;
   }
@@ -80,7 +83,7 @@ const ImageContent = styled.div`
 const Blob = styled.div`
   border-radius: 71% 29% 63% 37% / 53% 30% 70% 47%;
   width: 640px;
-  height: 640px;
+  height: 560px;
   background: #fca311;
   position: absolute;
   top: -132px;
@@ -100,7 +103,7 @@ const Image = styled.img`
   width: 100%;
   height: auto;
   object-fit: cover;
-  z-index: 1;
+  z-index: 2;
 
   @media only screen and (max-width: 1000px) {
     width: 40vw;
@@ -169,7 +172,7 @@ const Description = styled.span`
 const Buttons = styled.div`
   display: flex;
   gap: 24px;
-  margin-top: 48px;
+  margin-top: 64px;
   position: relative;
 
   @media only screen and (max-width: 768px) {
@@ -221,4 +224,16 @@ const Button = styled.button`
     font-size: 0.75rem;
     padding: 14px 28px;
   }
+`;
+
+const HeadingSecond = styled.h1`
+  z-index: 1;
+  font-size: clamp(6rem, 10vw, 10rem);
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  color: #eee;
+  opacity: 0.1;
+  position: absolute;
+  top: 24px;
+  left: 0;
 `;
