@@ -86,15 +86,15 @@ const Blob = styled.div`
   height: 560px;
   background: #fca311;
   position: absolute;
-  top: -132px;
+  top: -112px;
   right: -180px;
   margin: 24px;
   z-index: 0;
 
   @media only screen and (max-width: 1200px) {
     width: 500px;
-    height: 620px;
-    top: -100px;
+    height: 560px;
+    top: -60px;
     right: -170px;
   }
 `;
@@ -228,7 +228,7 @@ const Button = styled.button`
 
 const HeadingSecond = styled.h1`
   z-index: 1;
-  font-size: clamp(6rem, 10vw, 10rem);
+  font-size: clamp(5rem, 10vw, 10rem);
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
   color: #eee;
