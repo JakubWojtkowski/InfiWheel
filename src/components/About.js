@@ -1,14 +1,46 @@
+import { Done } from "@mui/icons-material";
 import React from "react";
 import styled from "styled-components";
 
 function About() {
   return (
     <Container>
-      <Heading>About</Heading>
       <Main>
         <MainLeft></MainLeft>
-        <MainRight></MainRight>
+
+        <MainRight>
+          <Heading>About Us</Heading>
+
+          <Text>
+            We believe in making every journey an unforgettable adventure. As a
+            premier rental car company, we are dedicated to providing you with
+            the keys to convenience, freedom, and comfort. Whether you're
+            embarking on a business trip, a family vacation, or a spontaneous
+            road trip with friends, InfiWheel is here to enhance your travel
+            experience.
+            <Under />
+          </Text>
+        </MainRight>
       </Main>
+      <Numbers>
+        <Number>
+          <Done />
+          <Head>100k+</Head>
+          <Desc>clients from around the world</Desc>
+        </Number>
+
+        <Number>
+          <Done />
+          <Head>100k+</Head>
+          <Desc>clients from around the world</Desc>
+        </Number>
+
+        <Number>
+          <Done />
+          <Head>100k+</Head>
+          <Desc>clients from around the world</Desc>
+        </Number>
+      </Numbers>
     </Container>
   );
 }
@@ -20,19 +52,72 @@ const Container = styled.div`
 `;
 
 const Heading = styled.h2`
-  font-size: clamp(3rem, 5vw, 5vw);
+  font-size: clamp(3rem, 5vw, 5rem);
   letter-spacing: -1px;
-  text-align: right;
 `;
 
 const Main = styled.div`
-  display: flex;
-  gap: 4px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 48px;
 `;
 
 const MainLeft = styled.div`
-  height: 200px;
-  width: 100%;
+  background: url("../images/about.jpg") top;
+  background-size: cover;
+  border-radius: 32px;
+  background-repeat: no-repeat;
 `;
 
-const MainRight = styled(MainLeft)``;
+const MainRight = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+`;
+
+const Text = styled.div`
+  position: relative;
+  line-height: 2;
+  width: 85%;
+  font-size: clamp(0.75rem, 5vw, 1.25rem);
+  z-index: 0;
+`;
+
+const Under = styled.div`
+  position: absolute;
+  opacity: 0.9;
+  top: 24px;
+  bottom: 0;
+  left: 180px;
+  right: 0;
+  width: 400px;
+  z-index: -1;
+`;
+
+const Numbers = styled.div`
+  margin-top: 48px;
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+`;
+
+const Number = styled.div`
+  display: flex;
+  padding: 12px;
+  box-shadow: rgba(33, 35, 38, 0.1) 0px 4px 4px -4px;
+  flex-direction: column;
+  align-items: center;
+  grid-gap: 8px;
+
+  .MuiSvgIcon-root {
+    color: #fca311 !important;
+    font-size: 48px !important;
+    margin-bottom: 8px;
+  }
+`;
+
+const Head = styled.h3``;
+
+const Desc = styled.span`
+  opacity: 0.8;
+`;

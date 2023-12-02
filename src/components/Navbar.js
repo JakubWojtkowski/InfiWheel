@@ -16,8 +16,9 @@ function Navbar() {
               <Dot />
             </MenuItem>
           </Link>
-          <MenuItem>Offer</MenuItem>
+
           <MenuItem>About</MenuItem>
+          <MenuItem>Offer</MenuItem>
           <MenuItem>Mission</MenuItem>
           <MenuBtn>Let's ride</MenuBtn>
 

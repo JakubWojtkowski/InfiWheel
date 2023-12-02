@@ -37,7 +37,7 @@ const Container = styled.div`
 
 const BigHeading = styled.h2`
   text-align: center;
-  font-size: clamp(3rem, 5vw, 5vw);
+  font-size: clamp(3rem, 5vw, 5rem);
   letter-spacing: -1px;
   z-index: 1;
 
@@ -97,6 +97,6 @@ const MiniFooter = styled.span`
   font-size: clamp(0.75rem, 4vw, 1.25rem);
 
   a {
-    color: #14213d;
+    color: #fca311;
   }
 `;

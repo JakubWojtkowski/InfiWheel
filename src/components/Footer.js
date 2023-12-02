@@ -153,7 +153,7 @@ const MainBottom = styled.div`
 `;
 
 const Heading = styled.h2`
-  font-size: clamp(3rem, 5vw, 5vw);
+  font-size: clamp(3rem, 5vw, 5rem);
   letter-spacing: -1px;
 `;
 
