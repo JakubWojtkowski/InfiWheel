@@ -228,12 +228,17 @@ const Button = styled.button`
 
 const HeadingSecond = styled.h1`
   z-index: 1;
-  font-size: clamp(5rem, 10vw, 10rem);
+  font-size: clamp(5rem, 12.5vw, 12rem);
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
   color: #eee;
   opacity: 0.1;
   position: absolute;
-  top: 24px;
-  left: 0;
+  top: 48px;
+  left: -180px;
+
+  @media only screen and (max-width: 1024px) {
+    top: 150px;
+    left: -120px;
+  }
 `;
