@@ -147,9 +147,13 @@ const MainTop = styled.div`
 const MainBottom = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-top: 24px;
   gap: 24px;
   flex-wrap: wrap;
-  padding: 24px;
+
+  @media only screen and (max-width: 600px) {
+    padding: 24px;
+  }
 `;
 
 const Heading = styled.h2`

@@ -44,8 +44,17 @@ const BigHeading = styled.h2`
   span {
     position: relative;
     color: #eee;
-    background: url("../images/find.svg");
-    background-size: cover;
+
+    &:before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      padding: 3px;
+      background: #fca311;
+      z-index: -1;
+      border-radius: 32px;
+    }
   }
 `;
 
@@ -97,6 +106,6 @@ const MiniFooter = styled.span`
   font-size: clamp(0.75rem, 4vw, 1.25rem);
 
   a {
-    color: #fca311;
+    color: #14213d;
   }
 `;

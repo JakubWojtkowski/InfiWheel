@@ -102,9 +102,9 @@ const Item = styled.div`
 `;
 
 const ItemImage = styled.div`
-  height: 80%;
+  height: 70%;
   display: grid;
-  place-items: center;
+  place-items: end;
   background: #e5e5e5;
   overflow: hidden;
   border-radius: 8px;

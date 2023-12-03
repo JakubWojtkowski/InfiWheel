@@ -1,12 +1,46 @@
 import { Done } from "@mui/icons-material";
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 
 function About() {
+  useEffect(() => {
+    function showCards() {
+      let cards = document.querySelectorAll(".card");
+      let stickArea = document.querySelector(".stack-area");
+
+      function rotateCards() {
+        let angle = 0;
+        cards.forEach((card) => {
+          card.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`;
+          angle = angle - 10;
+        });
+      }
+    }
+  }, []);
+
   return (
     <Container>
       <Main>
-        <MainLeft></MainLeft>
+        <MainLeft>
+          <Cards className="cards">
+            <Card className="card">
+              <Sub>Simplified</Sub>
+              <Content>Renting a car are now simple</Content>
+            </Card>
+            <Card>
+              <Sub>Simplified</Sub>
+              <Content>Renting a car are now simple</Content>
+            </Card>
+            <Card>
+              <Sub>Boost Productivity</Sub>
+              <Content>Perform your duties faster</Content>
+            </Card>
+            <Card>
+              <Sub>Support</Sub>
+              <Content>Now its 24/7 support</Content>
+            </Card>
+          </Cards>
+        </MainLeft>
 
         <MainRight>
           <Heading>About Us</Heading>
@@ -63,11 +97,58 @@ const Main = styled.div`
 `;
 
 const MainLeft = styled.div`
-  background: url("../images/about.jpg") top;
-  background-size: cover;
-  border-radius: 32px;
-  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  flex-basis: 50%;
 `;
+
+const Cards = styled.div`
+  width: 100%;
+  height: 100%;
+  position: relative;
+`;
+
+const Card = styled.div`
+  width: 350px;
+  height: 350px;
+  padding: 32px;
+  border-radius: 6mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition: 0.5s ease-in-out;
+
+  &:nth-child(1) {
+    background: rgb(64, 122, 255);
+    z-index: 4;
+  }
+
+  &:nth-child(2) {
+    background: rgb(221, 62, 88);
+    z-index: 3;
+  }
+
+  &:nth-child(3) {
+    background: rgb(186, 113, 245);
+    z-index: 2;
+  }
+
+  &:nth-child(4) {
+    background: rgb(247, 92, 208);
+    z-index: 1;
+  }
+`;
+
+const Sub = styled.div``;
+
+const Content = styled.div``;
 
 const MainRight = styled.div`
   display: flex;
@@ -104,7 +185,6 @@ const Numbers = styled.div`
 const Number = styled.div`
   display: flex;
   padding: 12px;
-  box-shadow: rgba(33, 35, 38, 0.1) 0px 4px 4px -4px;
   flex-direction: column;
   align-items: center;
   grid-gap: 8px;
