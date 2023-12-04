@@ -60,7 +60,7 @@ const BigHeading = styled.h2`
 
 const Description = styled.span`
   text-align: center;
-  width: 50%;
+  width: 55%;
   line-height: 2;
   font-size: clamp(0.75rem, 5vw, 1.25rem);
 

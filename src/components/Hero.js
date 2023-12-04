@@ -1,7 +1,11 @@
+import { useScroll, useTransform } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
 
 function Hero() {
+  const { scrollYProgress } = useScroll();
+  const x = useTransform(scrollYProgress, [0, 1], [0, -600]);
+
   return (
     <Container>
       <Main>
@@ -29,7 +33,7 @@ function Hero() {
         <ImageContent>
           <Blob />
           <Image src="../images/hero.png" alt="hero" />
-          <HeadingSecond>InfiWheel</HeadingSecond>
+          <HeadingSecond style={{ x }}>InfiWheel</HeadingSecond>
         </ImageContent>
       </Main>
     </Container>
@@ -72,9 +76,6 @@ const ImageContent = styled.div`
   place-items: center;
   position: relative;
 
-  span {
-  }
-
   @media only screen and (max-width: 768px) {
     display: none;
   }
@@ -115,6 +116,7 @@ const Heading = styled.h1`
   z-index: 1;
   font-weight: 900;
   letter-spacing: -1px;
+  position: relative;
 
   span {
     position: relative;
@@ -235,7 +237,8 @@ const HeadingSecond = styled.h1`
   opacity: 0.1;
   position: absolute;
   top: 48px;
-  left: -180px;
+  left: -180px
+  white-space: nowrap;
 
   @media only screen and (max-width: 1024px) {
     top: 150px;
