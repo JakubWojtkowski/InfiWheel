@@ -18,7 +18,11 @@ function Navbar() {
           </Link>
 
           <MenuItem>About</MenuItem>
-          <MenuItem>Offer</MenuItem>
+
+          <Link to={"/offer"}>
+            <MenuItem>Offer</MenuItem>
+          </Link>
+
           <MenuItem>FAQ</MenuItem>
           <MenuBtn>Let's ride</MenuBtn>
 
