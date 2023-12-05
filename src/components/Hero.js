@@ -157,6 +157,8 @@ const SubHeading = styled.h3`
 
 const Description = styled.span`
   line-height: 2;
+  border-left: 3px solid #fca311;
+  padding-left: 24px;
   z-index: 12;
   width: 85%;
   font-size: clamp(0.75rem, 5vw, 1.25rem);
@@ -164,6 +166,8 @@ const Description = styled.span`
 
   @media only screen and (max-width: 768px) {
     text-align: center;
+    border: none;
+    padding-left: 0px;
   }
 
   @media only screen and (max-width: 600px) {

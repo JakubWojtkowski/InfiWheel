@@ -6,18 +6,20 @@ function About() {
   return (
     <Container>
       <Main>
-        <MainLeft></MainLeft>
-
+        <MainLeft>
+          <Image src="../images/about3.jpg" alt="" />
+          <Image src="../images/about1.jpg" alt="" />
+        </MainLeft>
         <MainRight>
-          <Heading>About Us</Heading>
+          <Heading>
+            We simplify car rental for your convenience
+            <span>.</span>
+          </Heading>
 
           <Text>
-            We believe in making every journey an unforgettable adventure. As a
-            premier rental car company, we are dedicated to providing you with
-            the keys to convenience, freedom, and comfort. Whether you're
-            embarking on a business trip, a family vacation, or a spontaneous
-            road trip with friends, InfiWheel is here to enhance your travel
-            experience.
+            As a leading rental car company, InfiWheel is committed to providing
+            freedom and comfort. Whether it's a business trip, family vacation,
+            or spontaneous road trip, we enhance your travel experience.
           </Text>
         </MainRight>
       </Main>
@@ -53,26 +55,71 @@ const Container = styled.div`
 const Heading = styled.h2`
   font-size: clamp(3rem, 5vw, 5rem);
   letter-spacing: -1px;
+
+  span {
+    color: #fca311;
+  }
+
+  @media only screen and (max-width: 768px) {
+    text-align: center;
+  }
 `;
 
 const Main = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 48px;
+
+  @media only screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+    place-items: center;
+  }
 `;
 
 const MainLeft = styled.div`
   display: flex;
-  border: 1px solid red;
   align-items: center;
   justify-content: center;
   position: relative;
+`;
+
+const Image = styled.img`
+  width: 55%;
+  height: 100%;
+  position: absolute;
+  left: 24px;
+  top: 0;
+  object-fit: contain;
+  border-radius: 32px;
+  z-index: 33;
+
+  &:nth-child(2) {
+    left: 220px;
+    top: 150px;
+    filter: grayscale(50%);
+  }
+
+  @media only screen and (max-width: 1024px) {
+    &:nth-child(2) {
+      left: 150px;
+      top: 120px;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const MainRight = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
+
+  @media only screen and (max-width: 768px) {
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 const Text = styled.div`
@@ -84,7 +131,7 @@ const Text = styled.div`
 `;
 
 const Numbers = styled.div`
-  margin-top: 48px;
+  margin-top: 32px;
   display: flex;
   gap: 24px;
   justify-content: space-between;
@@ -95,11 +142,11 @@ const Number = styled.div`
   padding: 12px;
   flex-direction: column;
   align-items: center;
-  grid-gap: 8px;
+  grid-gap: 4px;
 
   .MuiSvgIcon-root {
     color: #fca311 !important;
-    font-size: 48px !important;
+    font-size: 54px !important;
     margin-bottom: 8px;
   }
 `;
@@ -108,4 +155,5 @@ const Head = styled.h3``;
 
 const Desc = styled.span`
   opacity: 0.8;
+  text-align: center;
 `;

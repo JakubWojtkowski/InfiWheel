@@ -29,12 +29,14 @@ function App() {
 export default App;
 
 const Container = styled.div`
-  background-image: radial-gradient(73% 147%, #eadfdf 59%, #ece2df 100%),
-    radial-gradient(
-      91% 146%,
-      rgba(255, 255, 255, 0.5) 47%,
-      rgba(0, 0, 0, 0.5) 100%
-    );
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    344deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(240, 240, 240, 1) 65%,
+    rgba(229, 229, 229, 1) 94%,
+    rgba(241, 196, 123, 1) 100%
+  );
   overflow: hidden;
   background-blend-mode: screen;
   color: #202020;

@@ -19,7 +19,7 @@ function Navbar() {
 
           <MenuItem>About</MenuItem>
           <MenuItem>Offer</MenuItem>
-          <MenuItem>Mission</MenuItem>
+          <MenuItem>FAQ</MenuItem>
           <MenuBtn>Let's ride</MenuBtn>
 
           <HamburgerMenu>
