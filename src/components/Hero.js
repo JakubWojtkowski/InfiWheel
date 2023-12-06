@@ -12,7 +12,10 @@ function Hero() {
         <Text>
           <SubHeading>Find Your Perfect Rental with Us</SubHeading>
           <Heading>
-            <span>Freedom </span>with InfiWheel
+            <span>
+              <i> Freedom</i>{" "}
+            </span>
+            with InfiWheel
           </Heading>
           <Description>
             Start your adventure with our exceptional rental options. Whether
@@ -87,7 +90,7 @@ const Blob = styled.div`
   height: 560px;
   background: #fca311;
   position: absolute;
-  top: -112px;
+  top: -86px;
   right: -180px;
   margin: 24px;
   z-index: 0;
@@ -112,7 +115,7 @@ const Image = styled.img`
 `;
 
 const Heading = styled.h1`
-  font-size: clamp(3rem, 7vw, 6rem);
+  font-size: clamp(3rem, 7.5vw, 6.5rem);
   z-index: 1;
   font-weight: 900;
   letter-spacing: -1px;
@@ -124,10 +127,10 @@ const Heading = styled.h1`
     &::after {
       content: "";
       position: absolute;
-      width: 93%;
-      left: 4px;
+      width: 92%;
+      left: 7px;
       z-index: -1;
-      bottom: 12px;
+      bottom: 14px;
       height: 20px;
       border-radius: 0px 0px 24px 0px;
       background: rgb(20, 33, 61);

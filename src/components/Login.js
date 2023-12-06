@@ -6,6 +6,7 @@ import {
   VisibilityOff,
 } from "@mui/icons-material";
 import React, { useState } from "react";
+import { Link } from "react-router-dom/cjs/react-router-dom";
 import styled from "styled-components";
 
 function Login() {
@@ -64,9 +65,9 @@ function Login() {
             </LoginBtns>
             <OptionalText>
               Don't have an account?{" "}
-              <span style={{ color: "#fca311", fontWeight: "bold" }}>
-                Register now
-              </span>
+              <Link to={"/register"}>
+                <span>Register now</span>
+              </Link>
             </OptionalText>
           </Form>
 
@@ -145,8 +146,8 @@ const Image = styled.img`
 `;
 
 const Heading = styled.h1`
-  font-size: 2.5rem;
-  letter-spacing: 1px;
+  font-size: 3rem;
+  letter-spacing: -1px;
 `;
 
 const SubHeading = styled.span`
@@ -181,7 +182,7 @@ const LoginBtn = styled.button`
   cursor: pointer;
   padding: 16px 32px;
   border: 1px solid transparent;
-  border-radius: 32px;
+  border-radius: 16px;
   font-weight: bold;
   letter-spacing: 0.25px;
   font-weight: bold;
@@ -197,7 +198,7 @@ const LoginBtns = styled.div`
   display: flex;
   gap: 24px;
   justify-content: center;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
 `;
 
 const SecondaryLoginBtn = styled.button`
@@ -226,4 +227,12 @@ const OptionalText = styled.span`
   font-size: 0.8rem;
   cursor: pointer;
   text-align: ${(props) => (props.password ? "right" : "center")};
+
+  a {
+    color: #14213d;
+  }
+
+  &:nth-last-child(1) {
+    opacity: 0.7;
+  }
 `;

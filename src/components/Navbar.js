@@ -24,7 +24,13 @@ function Navbar() {
           </Link>
 
           <MenuItem>FAQ</MenuItem>
-          <MenuBtn>Let's ride</MenuBtn>
+
+          <MenuBtns>
+            <Link to={"/login"}>
+              <LoginBtn>Sign In</LoginBtn>
+            </Link>
+            <MenuBtn>Let's ride</MenuBtn>
+          </MenuBtns>
 
           <HamburgerMenu>
             <Bar />
@@ -156,11 +162,22 @@ const Dot = styled.div`
   border-radius: 50%;
 `;
 
+const MenuBtns = styled.div`
+  margin-left: 48px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+`;
+
+const LoginBtn = styled(MenuItem)`
+  color: #fca311;
+`;
+
 const MenuBtn = styled.a`
   background: #eeeeee;
   padding: 10px 20px;
   border: 1px solid #14213d;
-  margin-left: 24px;
+  max-width: 140px;
   border-radius: 16px;
   cursor: pointer;
   transition: all 0.25s;
