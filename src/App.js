@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Offer from "./components/Offer";
 import Register from "./components/Register";
+import UserManage from "./components/UserManage";
 
 function App() {
   return (
@@ -20,6 +21,10 @@ function App() {
 
           <Route path="/register">
             <Register />
+          </Route>
+
+          <Route path="/user">
+            <UserManage />
           </Route>
 
           <Route path="/offer">
