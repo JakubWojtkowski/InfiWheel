@@ -8,8 +8,16 @@ function Offer() {
       <Main>
         <Header>
           <Filter>Filter by:</Filter>
-          <MiniCard></MiniCard>
+          <FilterCards>
+            <FilterCard active>Manual</FilterCard>
+            <FilterCard>Automatic</FilterCard>
+            <FilterCard>SUV</FilterCard>
+            <FilterCard>Electric</FilterCard>
+            <FilterCard>City</FilterCard>
+            <FilterCard>Minivan</FilterCard>
+          </FilterCards>
         </Header>
+
         <Cars>
           <CarCard>
             <Image>
@@ -89,17 +97,41 @@ const Heading = styled.h2`
 const Header = styled.div`
   margin: 12px;
   padding: 12px;
-  height: 48px;
+  min-height: 48px;
   display: flex;
   gap: 24px;
-  align-items: center;
   border: 2px solid rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 `;
 
-const Filter = styled.span``;
+const Filter = styled.span`
+  font-size: 1.15rem;
+`;
 
-const MiniCard = styled.div``;
+const FilterCards = styled.div`
+  flex: 1;
+  display: grid;
+  grid-gap: 12px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+
+  @media only screen and (max-width: 768px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+`;
+
+const FilterCard = styled.div`
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  border-radius: 5px;
+  display: grid;
+  place-items: center;
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  padding: 2px 10px;
+`;
 
 const Cars = styled.div`
   margin-top: 24px;

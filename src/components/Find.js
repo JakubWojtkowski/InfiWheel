@@ -31,8 +31,12 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 20px;
+  padding: 24px 0;
+  background: #14213d;
+  height: 100vh;
   gap: 24px;
-  color: #14213d;
+  color: #f9f9f9;
 `;
 
 const BigHeading = styled.h2`
@@ -43,7 +47,6 @@ const BigHeading = styled.h2`
 
   span {
     position: relative;
-    color: #eee;
 
     &:before {
       position: absolute;
@@ -88,7 +91,7 @@ const Button = styled.button`
   color: ${(props) => (props.learn ? "#14213d" : "#eee")};
   padding: 16px 32px;
   border-radius: 16px;
-  border: 1px solid #14213d;
+  border: 1px solid #f9f9f9;
   cursor: pointer;
   transition: all 0.25s ease-in-out;
   font-weight: bold;
@@ -106,6 +109,6 @@ const MiniFooter = styled.span`
   font-size: clamp(0.75rem, 4vw, 1.25rem);
 
   a {
-    color: #14213d;
+    color: #f9f9f9;
   }
 `;

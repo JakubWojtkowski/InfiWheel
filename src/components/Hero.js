@@ -90,7 +90,7 @@ const Blob = styled.div`
   height: 560px;
   background: #fca311;
   position: absolute;
-  top: -86px;
+  top: -76px;
   right: -180px;
   margin: 24px;
   z-index: 0;
@@ -163,8 +163,8 @@ const Description = styled.span`
   border-left: 3px solid #fca311;
   padding-left: 24px;
   z-index: 12;
-  width: 85%;
-  font-size: clamp(0.75rem, 5vw, 1.25rem);
+  width: 90%;
+  font-size: clamp(0.75rem, 5vw, 1.35rem);
   margin-top: 12px;
 
   @media only screen and (max-width: 768px) {
@@ -181,7 +181,7 @@ const Description = styled.span`
 const Buttons = styled.div`
   display: flex;
   gap: 24px;
-  margin-top: 64px;
+  margin-top: 48px;
   position: relative;
 
   @media only screen and (max-width: 768px) {

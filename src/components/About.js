@@ -96,7 +96,7 @@ const Image = styled.img`
   &:nth-child(2) {
     left: 220px;
     top: 150px;
-    filter: grayscale(50%);
+    filter: grayscale(75%);
   }
 
   @media only screen and (max-width: 1024px) {
@@ -131,7 +131,7 @@ const Text = styled.div`
 `;
 
 const Numbers = styled.div`
-  margin-top: 32px;
+  margin-top: 48px;
   display: flex;
   gap: 24px;
   justify-content: space-between;

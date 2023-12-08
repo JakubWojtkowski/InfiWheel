@@ -106,7 +106,6 @@ const Bar = styled.div`
 const Logo = styled.div`
   height: 82px;
   width: 86px;
-  margin-right: 8px;
 
   img {
     width: 100%;
