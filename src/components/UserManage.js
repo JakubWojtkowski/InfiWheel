@@ -7,14 +7,18 @@ function UserManage() {
     <Container>
       <Main>
         <Header>
-          <Avatar />
+          <Avatar
+            src="https://www.businessinsider.de/wp-content/uploads/2019/06/elon-musk.jpg"
+            alt="profile image"
+          />
+          <SubHeading>Type of user</SubHeading>
           <Heading>User Name</Heading>
         </Header>
 
         <Content>
-          <Card>1</Card>
-          <Card>2</Card>
-          <Card>3</Card>
+          <Card>Reservations</Card>
+          <Card>Car ads</Card>
+          <Card>Manage your account</Card>
         </Content>
       </Main>
     </Container>
@@ -43,12 +47,16 @@ const Header = styled.div`
   gap: 12px;
 
   .MuiAvatar-root {
-    width: 280px !important;
-    height: 280px !important;
+    width: 240px !important;
+    height: 240px !important;
   }
 `;
 
-const Heading = styled.div``;
+const SubHeading = styled.span`
+  opacity: 0.75;
+`;
+
+const Heading = styled.h2``;
 
 const Content = styled.div`
   display: grid;
@@ -58,12 +66,15 @@ const Content = styled.div`
 `;
 
 const Card = styled.div`
-  background: red;
   border-radius: 12px;
   width: 300px;
+  font-size: 1.15rem;
+  letter-spacing: 0.5px;
   height: 200px;
   display: flex;
   flex-direction: column;
+  box-shadow: rgba(33, 35, 38, 0.1) 4px 6px 6px -4px;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 `;
