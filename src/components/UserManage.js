@@ -1,6 +1,7 @@
 import { CallMade } from "@mui/icons-material";
 import { Avatar } from "@mui/material";
 import React from "react";
+import { Link } from "react-router-dom/cjs/react-router-dom";
 import styled from "styled-components";
 
 function UserManage() {
@@ -17,16 +18,24 @@ function UserManage() {
         </Header>
 
         <Content>
-          <Card>
-            Reservations <CallMade />{" "}
-          </Card>
-          <Card>
-            Car ads <CallMade />{" "}
-          </Card>
-          <Card>
-            {" "}
-            Manage your account <CallMade />{" "}
-          </Card>
+          <Link to={"/reservations"}>
+            <Card>
+              Reservations <CallMade />{" "}
+            </Card>
+          </Link>
+
+          <Link to={"/ads"}>
+            <Card>
+              Car ads <CallMade />{" "}
+            </Card>
+          </Link>
+
+          <Link to={"/manage"}>
+            <Card>
+              {" "}
+              Manage your account <CallMade />{" "}
+            </Card>
+          </Link>
         </Content>
       </Main>
     </Container>
@@ -76,6 +85,10 @@ const Content = styled.div`
   @media only screen and (max-width: 840px) {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
+
+  a {
+    text-decoration: none;
+  }
 `;
 
 const Card = styled.div`
@@ -109,6 +122,6 @@ const Card = styled.div`
 
   &:hover {
     gap: 8px;
-    font-size: 1.35rem;
+    font-size: 1.3rem;
   }
 `;

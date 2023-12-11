@@ -8,6 +8,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Offer from "./components/Offer";
 import Register from "./components/Register";
 import UserManage from "./components/UserManage";
+import Reservations from "./components/Reservations";
+import UserCarAds from "./components/UserCarAds";
 
 function App() {
   return (
@@ -25,6 +27,14 @@ function App() {
 
           <Route path="/user">
             <UserManage />
+          </Route>
+
+          <Route path="/reservations">
+            <Reservations />
+          </Route>
+
+          <Route path="/ads">
+            <UserCarAds />
           </Route>
 
           <Route path="/offer">
