@@ -2,7 +2,11 @@ import React from "react";
 import styled from "styled-components";
 
 function Reservations() {
-  return <Container>ss</Container>;
+  return (
+    <Container>
+      <h1>Your reservations: </h1>
+    </Container>
+  );
 }
 // monitorowanie rezerwacji - status platnosci, data odbioru i zwrotu auta
 

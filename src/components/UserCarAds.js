@@ -2,6 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 function UserCarAds() {
+  const edit = () => {
+    alert("Not implemented yet");
+  };
+
   return (
     <Container>
       <Main>
@@ -20,12 +24,13 @@ function UserCarAds() {
               <TextContent>
                 <Text>
                   <h3>Nr. 88124</h3>
-                  <span>Nazwa: Bmw e46</span>
-                  <span>Data utworzenia: 23.10.2023</span>
-                  <span>Liczba wyswietlen: 157</span>
+                  <span>Name: Bmw e46</span>
+                  <span>Type: Manual</span>
+                  <span>Date: 23.10.2023</span>
+                  <span>Views: 157</span>
                 </Text>
                 <Buttons>
-                  <Button>Edit</Button>
+                  <Button onClick={edit}>Edit</Button>
                   <Button remove>Remove</Button>
                 </Buttons>
               </TextContent>
@@ -45,12 +50,13 @@ function UserCarAds() {
               <TextContent>
                 <Text>
                   <h3>Nr. 88617</h3>
-                  <span>Nazwa: Volkswagen golf 6</span>
-                  <span>Data utworzenia: 29.10.2023</span>
-                  <span>Liczba wyswietlen: 92</span>
+                  <span>Name: Volkswagen golf 6</span>
+                  <span>Type: Manual</span>
+                  <span>Date: 29.10.2023</span>
+                  <span>Views: 92</span>
                 </Text>
                 <Buttons>
-                  <Button>Edit</Button>
+                  <Button onClick={edit}>Edit</Button>
                   <Button remove>Remove</Button>
                 </Buttons>
               </TextContent>
@@ -59,6 +65,20 @@ function UserCarAds() {
           </Card>
         </Cards>
       </Main>
+
+      <Form action="">
+        <label for="email">
+          <b>Name: </b>
+        </label>
+        <input type="text" placeholder="Name" name="name" required />
+
+        <label for="psw">
+          <b>Type: </b>
+        </label>
+        <input type="text" placeholder="Type" name="type" required />
+
+        <Button>Apply</Button>
+      </Form>
     </Container>
   );
 }
@@ -108,15 +128,19 @@ const Cards = styled.div`
 const Card = styled.div`
   width: 70vw;
   height: 45vh;
+
   background: #f9f9f9;
   flex: 1;
   display: flex;
   border-radius: 12px;
   position: relative;
+  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px,
+    rgba(255, 255, 255, 0.5) 0px 1px 0px inset;
 `;
 
 const CardContent = styled.div`
   padding: 32px;
+  z-index: 0;
   display: flex;
   gap: 24px;
   flex: 1;
@@ -170,6 +194,10 @@ const Button = styled.button`
   transition: all 0.25s ease-in-out;
   font-weight: bold;
   letter-spacing: 0.25px;
+
+  &:hover {
+    opacity: 0.8;
+  }
 `;
 
 const Number = styled.span`
@@ -177,5 +205,18 @@ const Number = styled.span`
   opacity: 0.75;
   letter-spacing: -1px;
   bottom: 0;
-  margin: 8px;
+  margin: 10px;
+`;
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: auto;
+  gap: 12px;
+  border: 1px solid red;
+
+  button {
+    margin-top: 24px;
+  }
 `;
