@@ -1,84 +1,89 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import EditAdForm from "./EditAdForm";
 
 function UserCarAds() {
-  const edit = () => {
+  const [isPopUpOpen, setIsPopUpOpen] = useState(false);
+
+  const remove = () => {
     alert("Not implemented yet");
+  };
+
+  const createNew = () => {};
+
+  const showPopUp = () => {
+    !isPopUpOpen && (document.body.style.overflowY = "hidden");
+    setIsPopUpOpen((current) => !current);
   };
 
   return (
     <Container>
-      <Main>
-        <Heading>Your car ads: 1</Heading>
-        <ButtonAdd>Create new</ButtonAdd>
-        <Cards>
-          <Card>
-            <CardContent>
-              <ImageContent>
-                <Image
-                  src="https://www.carscoops.com/wp-content/uploads/2019/07/1062bf0c-bmw-e46-m3-.jpg"
-                  alt="car"
-                />
-              </ImageContent>
+      <Wrapper>
+        {isPopUpOpen && (
+          <EditAdForm isOpen={isPopUpOpen} showPopUp={showPopUp} />
+        )}
+        <Main>
+          <Heading>Your car ads: 1</Heading>
+          <ButtonAdd>Create new</ButtonAdd>
+          <Cards>
+            <Card>
+              <CardContent>
+                <ImageContent>
+                  <Image
+                    src="https://www.carscoops.com/wp-content/uploads/2019/07/1062bf0c-bmw-e46-m3-.jpg"
+                    alt="car"
+                  />
+                </ImageContent>
 
-              <TextContent>
-                <Text>
-                  <h3>Nr. 88124</h3>
-                  <span>Name: Bmw e46</span>
-                  <span>Type: Manual</span>
-                  <span>Date: 23.10.2023</span>
-                  <span>Views: 157</span>
-                </Text>
-                <Buttons>
-                  <Button onClick={edit}>Edit</Button>
-                  <Button remove>Remove</Button>
-                </Buttons>
-              </TextContent>
-            </CardContent>
-            <Number>01</Number>
-          </Card>
+                <TextContent>
+                  <Text>
+                    <h3>Nr. 88124</h3>
+                    <span>Name: Bmw e46</span>
+                    <span>Type: Manual</span>
+                    <span>Date: 23.10.2023</span>
+                    <span>Views: 157</span>
+                  </Text>
+                  <Buttons>
+                    <Button onClick={showPopUp}>Edit</Button>
+                    <Button onClick={remove} remove>
+                      Remove
+                    </Button>
+                  </Buttons>
+                </TextContent>
+              </CardContent>
+              <Number>01</Number>
+            </Card>
 
-          <Card>
-            <CardContent>
-              <ImageContent>
-                <Image
-                  src="https://www.presiondeneumaticos.com/wp-content/uploads/2020/09/Volkswagen-Golf-6-scaled.jpg"
-                  alt="car"
-                />
-              </ImageContent>
+            <Card>
+              <CardContent>
+                <ImageContent>
+                  <Image
+                    src="https://www.presiondeneumaticos.com/wp-content/uploads/2020/09/Volkswagen-Golf-6-scaled.jpg"
+                    alt="car"
+                  />
+                </ImageContent>
 
-              <TextContent>
-                <Text>
-                  <h3>Nr. 88617</h3>
-                  <span>Name: Volkswagen golf 6</span>
-                  <span>Type: Manual</span>
-                  <span>Date: 29.10.2023</span>
-                  <span>Views: 92</span>
-                </Text>
-                <Buttons>
-                  <Button onClick={edit}>Edit</Button>
-                  <Button remove>Remove</Button>
-                </Buttons>
-              </TextContent>
-            </CardContent>
-            <Number>02</Number>
-          </Card>
-        </Cards>
-      </Main>
-
-      <Form action="">
-        <label for="email">
-          <b>Name: </b>
-        </label>
-        <input type="text" placeholder="Name" name="name" required />
-
-        <label for="psw">
-          <b>Type: </b>
-        </label>
-        <input type="text" placeholder="Type" name="type" required />
-
-        <Button>Apply</Button>
-      </Form>
+                <TextContent>
+                  <Text>
+                    <h3>Nr. 88617</h3>
+                    <span>Name: Volkswagen golf 6</span>
+                    <span>Type: Manual</span>
+                    <span>Date: 29.10.2023</span>
+                    <span>Views: 92</span>
+                  </Text>
+                  <Buttons>
+                    <Button onClick={showPopUp}>Edit</Button>
+                    <Button onClick={remove} remove>
+                      Remove
+                    </Button>
+                  </Buttons>
+                </TextContent>
+              </CardContent>
+              <Number>02</Number>
+            </Card>
+          </Cards>
+        </Main>
+      </Wrapper>
     </Container>
   );
 }
@@ -86,11 +91,13 @@ function UserCarAds() {
 export default UserCarAds;
 
 const Container = styled.div`
-  max-width: 1200px;
-  width: 90vw;
+  min-height: 100vh;
   margin: 24px auto;
   color: #14213d;
+  position: relative;
 `;
+
+const Wrapper = styled.div``;
 
 const Main = styled.div`
   display: grid;
@@ -102,7 +109,7 @@ const Heading = styled.h2`
 `;
 
 const ButtonAdd = styled.button`
-  margin-bottom: 48px;
+  margin-bottom: 64px;
   background: #fca311;
   padding: 16px 32px;
   border: 1px solid #14213d;
@@ -128,7 +135,6 @@ const Cards = styled.div`
 const Card = styled.div`
   width: 70vw;
   height: 45vh;
-
   background: #f9f9f9;
   flex: 1;
   display: flex;
@@ -206,17 +212,4 @@ const Number = styled.span`
   letter-spacing: -1px;
   bottom: 0;
   margin: 10px;
-`;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  width: 400px;
-  margin: auto;
-  gap: 12px;
-  border: 1px solid red;
-
-  button {
-    margin-top: 24px;
-  }
 `;

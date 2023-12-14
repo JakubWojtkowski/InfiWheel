@@ -131,6 +131,11 @@ const FilterCard = styled.div`
   place-items: center;
   font-size: clamp(0.85rem, 2vw, 1rem);
   padding: 2px 10px;
+  transition: all 250ms ease-in-out;
+
+  &:hover {
+    background-color: #fca311;
+  }
 `;
 
 const Cars = styled.div`
