@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 function Offer() {
+  const [cars, setCars] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:8080/Car/all")
+      .then((res) => res.json())
+      .then((result) => {
+        setCars(result);
+      });
+  }, []);
+
   return (
     <Container>
       <Heading>Our fleet</Heading>
@@ -19,54 +29,25 @@ function Offer() {
         </Header>
 
         <Cars>
-          <CarCard>
-            <Image>
-              <img
-                src="https://purepng.com/public/uploads/large/purepng.com-white-fiat-500-carcarvehicletransportfiat-961524650065dsyyk.png"
-                alt=""
-              />
-            </Image>
-            <Content>
-              <Title>Fiat 500</Title>
-              <Desc>5 miejsc | manualna | benzyna</Desc>
-            </Content>
-          </CarCard>
-          <CarCard>
-            <Image>
-              <img
-                src="https://purepng.com/public/uploads/large/purepng.com-white-fiat-500-carcarvehicletransportfiat-961524650065dsyyk.png"
-                alt=""
-              />
-            </Image>
-            <Content>
-              <Title>Fiat 500</Title>
-              <Desc>5 miejsc | manualna | benzyna</Desc>
-            </Content>
-          </CarCard>
-          <CarCard>
-            <Image>
-              <img
-                src="https://www.pngarts.com/files/3/Audi-A6-PNG-Pic.png"
-                alt=""
-              />
-            </Image>
-            <Content>
-              <Title>Fiat 500</Title>
-              <Desc>5 miejsc | manualna | benzyna</Desc>
-            </Content>
-          </CarCard>
-          <CarCard>
-            <Image>
-              <img
-                src="https://purepng.com/public/uploads/large/purepng.com-white-fiat-500-carcarvehicletransportfiat-961524650065dsyyk.png"
-                alt=""
-              />
-            </Image>
-            <Content>
-              <Title>Fiat 500</Title>
-              <Desc>5 miejsc | manualna | benzyna</Desc>
-            </Content>
-          </CarCard>
+          {cars?.map((car) => {
+            return (
+              <CarCard key={car.id}>
+                <Image>
+                  <img
+                    src="https://purepng.com/public/uploads/large/purepng.com-white-fiat-500-carcarvehicletransportfiat-961524650065dsyyk.png"
+                    alt=""
+                  />
+                </Image>
+                <Content>
+                  <Title>{car.manufacturer}</Title>
+                  <Desc>
+                    {car.number_of_seats} seats| {car.transmission} |{" "}
+                    {car.fuel_type}
+                  </Desc>
+                </Content>
+              </CarCard>
+            );
+          })}
         </Cars>
       </Main>
     </Container>
