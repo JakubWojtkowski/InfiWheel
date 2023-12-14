@@ -41,7 +41,7 @@ function Offer() {
                 <Content>
                   <Title>{car.manufacturer}</Title>
                   <Desc>
-                    {car.number_of_seats} seats| {car.transmission} |{" "}
+                    {car.number_of_seats} seats | {car.transmission} |{" "}
                     {car.fuel_type}
                   </Desc>
                 </Content>
@@ -136,6 +136,12 @@ const Cars = styled.div`
 
 const CarCard = styled.div`
   padding: 10px;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: rgba(27, 31, 35, 0.1) 0px 2px 3px,
+    rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+  }
 `;
 
 const Image = styled.div`
