@@ -7,7 +7,7 @@ function Reservations() {
 
   // cancel reservation
   const deleteReservation = (id) => {
-    fetch(`http://localhost:8080/bookings/cancel/${id}`, { method: "DELETE" })
+    fetch(`http://localhost:8080/bookings/cancel/${id}`, { method: "PUT" })
       .then(async (response) => {
         const data = await response.json();
 

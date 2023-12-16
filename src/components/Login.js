@@ -5,22 +5,77 @@ import {
   Visibility,
   VisibilityOff,
 } from "@mui/icons-material";
-import React, { useState } from "react";
-import { Link } from "react-router-dom/cjs/react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { Link, useHistory } from "react-router-dom/cjs/react-router-dom";
 import styled from "styled-components";
+import { setUserSignIn } from "../features/user/userSlice";
+import { BeatLoader } from "react-spinners";
 
 function Login() {
+  const [isLoading, setIsLoading] = useState(false);
   const [isVisibilityOff, setIsVisibilityOff] = useState(true);
+
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
+  const [users, setUsers] = useState([]);
+  const history = useHistory();
+  const dispatch = useDispatch();
 
   const switchPassword = (e) => {
     const password = document.querySelector("#password");
     const type =
       password.getAttribute("type") === "password" ? "text" : "password";
-
     password.setAttribute("type", type);
-
     setIsVisibilityOff(!isVisibilityOff);
   };
+
+  const handleOnChange = (event) => {
+    setUser({ ...user, [event.target.name]: event.target.value });
+  };
+
+  const signIn = async () => {
+    setIsLoading(true);
+
+    setTimeout(() => {
+      try {
+        users.map((userDb) => {
+          if (
+            userDb.email === user.email &&
+            userDb.password === user.password
+          ) {
+            dispatch(
+              setUserSignIn({
+                password: userDb.password,
+                email: userDb.email,
+                firstname: userDb.firstname,
+                surname: userDb.surname,
+              })
+            );
+            setTimeout(() => {
+              setIsLoading(true);
+              history.push("/");
+            }, 1000);
+          } else {
+            setIsLoading(false);
+          }
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    }, 1000);
+  };
+
+  useEffect(() => {
+    fetch("http://localhost:8080/User/all")
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        setUsers(result);
+      });
+  }, []);
 
   return (
     <Container>
@@ -33,6 +88,9 @@ function Login() {
               <Input
                 type="text"
                 placeholder="Email"
+                name="email"
+                value={user.email}
+                onChange={handleOnChange}
                 id="email"
                 required
               ></Input>
@@ -40,6 +98,9 @@ function Login() {
                 type="password"
                 placeholder="Password"
                 id="password"
+                name="password"
+                value={user.password}
+                onChange={handleOnChange}
                 required
               ></Input>
 
@@ -50,7 +111,9 @@ function Login() {
               )}
             </LoginForm>
             <OptionalText password>Forgot Password?</OptionalText>
-            <LoginBtn>Login</LoginBtn>
+            <LoginBtn onClick={signIn}>
+              {isLoading ? <BeatLoader size={10} color="#14213d" /> : "Login"}
+            </LoginBtn>
             <OptionalText>or continue with</OptionalText>
             <LoginBtns>
               <SecondaryLoginBtn>

@@ -1,8 +1,38 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom/cjs/react-router-dom";
+import { Link, useHistory } from "react-router-dom/cjs/react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectUser,
+  setUserSignIn,
+  setUserSignOut,
+} from "../features/user/userSlice";
 
 function Navbar() {
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const signOut = () => {
+    dispatch(setUserSignOut());
+    history.push("/login");
+  };
+
+  useEffect(() => {
+    if (user) {
+      dispatch(
+        setUserSignIn({
+          password: user.password,
+          email: user.email,
+          firstname: user.firstname,
+          surname: user.surname,
+        })
+      );
+    }
+
+    console.log(user);
+  });
+
   return (
     <Container>
       <Nav>
@@ -25,10 +55,20 @@ function Navbar() {
 
           <MenuItem>FAQ</MenuItem>
 
-          <MenuBtns>
-            <Link to={"/login"}>
-              <LoginBtn>Sign In</LoginBtn>
+          {user.email != null && (
+            <Link to={"/user"}>
+              <MenuItem>User</MenuItem>
             </Link>
+          )}
+
+          <MenuBtns>
+            {user.email !== null ? (
+              <LoginBtn onClick={signOut}>Sign Out</LoginBtn>
+            ) : (
+              <Link to={"/login"}>
+                <LoginBtn>Sign In</LoginBtn>
+              </Link>
+            )}
             <MenuBtn>Let's ride</MenuBtn>
           </MenuBtns>
 

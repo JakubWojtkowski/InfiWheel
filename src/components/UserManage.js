@@ -1,10 +1,16 @@
 import { CallMade } from "@mui/icons-material";
 import { Avatar } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import styled from "styled-components";
+import { selectUser } from "../features/user/userSlice";
 
 function UserManage() {
+  const user = useSelector(selectUser);
+
+  useEffect(() => {}, []);
+
   return (
     <Container>
       <Main>
@@ -13,8 +19,10 @@ function UserManage() {
             src="https://www.businessinsider.de/wp-content/uploads/2019/06/elon-musk.jpg"
             alt="profile image"
           />
-          <SubHeading>Type of user</SubHeading>
-          <Heading>User Name</Heading>
+          <SubHeading>{user.email}</SubHeading>
+          <Heading>
+            {user.firstname} {user.surname}
+          </Heading>
         </Header>
 
         <Content>

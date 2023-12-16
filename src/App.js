@@ -10,8 +10,14 @@ import Register from "./components/Register";
 import UserManage from "./components/UserManage";
 import Reservations from "./components/Reservations";
 import UserCarAds from "./components/UserCarAds";
+import ModalForm from "./components/ModalForm";
+import AddNewCarAd from "./components/AddNewCarAd";
+import { useSelector } from "react-redux";
+import { selectUser } from "./features/user/userSlice";
 
 function App() {
+  const user = useSelector(selectUser);
+
   return (
     <Container>
       <Router>
@@ -31,6 +37,14 @@ function App() {
 
           <Route path="/reservations">
             <Reservations />
+          </Route>
+
+          <Route path="/ads/edit/:id">
+            <ModalForm />
+          </Route>
+
+          <Route path="/ads/add">
+            <AddNewCarAd />
           </Route>
 
           <Route path="/ads">

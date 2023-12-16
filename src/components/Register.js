@@ -1,31 +1,96 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import styled from "styled-components";
 
 function Register() {
+  const register = () => {
+    fetch(`http://localhost:8080/User/add`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(user),
+    }).then((res) => console.log(res));
+  };
+
+  const [user, setUser] = useState({
+    firstname: "",
+    surname: "",
+    username: "",
+    phone: "",
+    email: "",
+    role: 2,
+    age: 21,
+    driver_licence: "K6712356",
+    password: "",
+  });
+
+  const handleOnChange = (event) => {
+    setUser({ ...user, [event.target.name]: event.target.value });
+    console.log(user);
+  };
+
   return (
     <Container>
       <Main>
         <Form>
           <LoginForm>
             <Heading>Create an account</Heading>
-            <Input type="text" placeholder="Name" id="name" required></Input>
+            <Input
+              type="text"
+              placeholder="Firstname"
+              id="firstname"
+              name="firstname"
+              value={user.firstname}
+              onChange={handleOnChange}
+              required
+            ></Input>
+            <Input
+              type="text"
+              placeholder="Surname"
+              id="surname"
+              name="surname"
+              value={user.surname}
+              onChange={handleOnChange}
+              required
+            ></Input>
+            <Input
+              type="text"
+              placeholder="Username"
+              id="username"
+              value={user.username}
+              name="username"
+              onChange={handleOnChange}
+              required
+            ></Input>
             <Input
               type="tel"
               id="phone"
               placeholder="Phone number (eg. 123456789)"
               pattern="[0-9]{9}"
+              value={user.phone}
+              name="phone"
+              onChange={handleOnChange}
               required
             ></Input>
-            <Input type="text" placeholder="Email" id="email" required></Input>
+            <Input
+              type="text"
+              placeholder="Email"
+              id="email"
+              value={user.email}
+              name="email"
+              onChange={handleOnChange}
+              required
+            ></Input>
             <Input
               type="password"
               placeholder="Password"
               id="password"
+              value={user.password}
+              name="password"
+              onChange={handleOnChange}
               required
             ></Input>
           </LoginForm>
-          <LoginBtn>Create an account</LoginBtn>
+          <LoginBtn onClick={register}>Create an account</LoginBtn>
 
           <OptionalText>
             Already have an account?{" "}

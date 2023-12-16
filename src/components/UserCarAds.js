@@ -1,86 +1,84 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import EditAdForm from "./EditAdForm";
+// import ModalForm from "./ModalForm";
+import Moment from "react-moment";
+import { Link } from "react-router-dom/cjs/react-router-dom";
 
 function UserCarAds() {
-  const [isPopUpOpen, setIsPopUpOpen] = useState(false);
+  // const [isPopUpOpen, setIsPopUpOpen] = useState(false);
+  const [bookings, setBookings] = useState([]);
 
-  const remove = () => {
-    alert("Not implemented yet");
+  const remove = (id) => {
+    console.log(id);
   };
 
-  const createNew = () => {};
-
-  const showPopUp = () => {
-    !isPopUpOpen && (document.body.style.overflowY = "hidden");
-    setIsPopUpOpen((current) => !current);
+  const addBooking = () => {
+    console.log("sss");
   };
+
+  // fetching all the reservations
+  useEffect(() => {
+    fetch("http://localhost:8080/bookings/all")
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        setBookings(result);
+      });
+  }, []);
 
   return (
     <Container>
       <Wrapper>
-        {isPopUpOpen && (
-          <EditAdForm isOpen={isPopUpOpen} showPopUp={showPopUp} />
-        )}
         <Main>
-          <Heading>Your car ads: 1</Heading>
-          <ButtonAdd>Create new</ButtonAdd>
+          <Heading>Your car ads: {bookings.length}</Heading>
+          <Link to={"/ads/add"}>
+            <ButtonAdd>Create new</ButtonAdd>
+          </Link>
           <Cards>
-            <Card>
-              <CardContent>
-                <ImageContent>
-                  <Image
-                    src="https://www.carscoops.com/wp-content/uploads/2019/07/1062bf0c-bmw-e46-m3-.jpg"
-                    alt="car"
-                  />
-                </ImageContent>
+            {bookings &&
+              bookings.map((booking, index) => {
+                return (
+                  <Card key={index}>
+                    <CardContent>
+                      <ImageContent>
+                        <Image
+                          src="https://www.carscoops.com/wp-content/uploads/2019/07/1062bf0c-bmw-e46-m3-.jpg"
+                          alt="car"
+                        />
+                      </ImageContent>
 
-                <TextContent>
-                  <Text>
-                    <h3>Nr. 88124</h3>
-                    <span>Name: Bmw e46</span>
-                    <span>Type: Manual</span>
-                    <span>Date: 23.10.2023</span>
-                    <span>Views: 157</span>
-                  </Text>
-                  <Buttons>
-                    <Button onClick={showPopUp}>Edit</Button>
-                    <Button onClick={remove} remove>
-                      Remove
-                    </Button>
-                  </Buttons>
-                </TextContent>
-              </CardContent>
-              <Number>01</Number>
-            </Card>
-
-            <Card>
-              <CardContent>
-                <ImageContent>
-                  <Image
-                    src="https://www.presiondeneumaticos.com/wp-content/uploads/2020/09/Volkswagen-Golf-6-scaled.jpg"
-                    alt="car"
-                  />
-                </ImageContent>
-
-                <TextContent>
-                  <Text>
-                    <h3>Nr. 88617</h3>
-                    <span>Name: Volkswagen golf 6</span>
-                    <span>Type: Manual</span>
-                    <span>Date: 29.10.2023</span>
-                    <span>Views: 92</span>
-                  </Text>
-                  <Buttons>
-                    <Button onClick={showPopUp}>Edit</Button>
-                    <Button onClick={remove} remove>
-                      Remove
-                    </Button>
-                  </Buttons>
-                </TextContent>
-              </CardContent>
-              <Number>02</Number>
-            </Card>
+                      <TextContent>
+                        <Text>
+                          <h3>Nr. {booking.id}</h3>
+                          <span>
+                            Name: {booking.car.manufacturer} {booking.car.model}
+                          </span>
+                          <span>Type: {booking.car.transmission}</span>
+                          <span>Seats: {booking.car.number_of_seats}</span>
+                          <span>
+                            Date:{" "}
+                            <Moment format="YYYY/MM/DD">
+                              {booking.startDate}
+                            </Moment>
+                          </span>
+                          <span>Views: 157</span>
+                        </Text>
+                        <Buttons>
+                          <Link to={`ads/edit/${booking.id}`}>
+                            <Button>Edit</Button>
+                          </Link>
+                          <Button onClick={() => remove(booking.id)} remove>
+                            Remove
+                          </Button>
+                        </Buttons>
+                      </TextContent>
+                    </CardContent>
+                    <Number>
+                      {booking.id < 10 ? "0" + booking.id : booking.id}
+                    </Number>
+                  </Card>
+                );
+              })}
           </Cards>
         </Main>
       </Wrapper>
