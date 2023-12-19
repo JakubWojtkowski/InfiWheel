@@ -10,10 +10,11 @@ import Register from "./components/Register";
 import UserManage from "./components/UserManage";
 import Reservations from "./components/Reservations";
 import UserCarAds from "./components/UserCarAds";
-import ModalForm from "./components/ModalForm";
+import EditBookingForm from "./components/EditBookingForm";
 import AddNewCarAd from "./components/AddNewCarAd";
 import { useSelector } from "react-redux";
 import { selectUser } from "./features/user/userSlice";
+import AddNewAd from "./components/AddNewAd";
 
 function App() {
   const user = useSelector(selectUser);
@@ -32,23 +33,27 @@ function App() {
           </Route>
 
           <Route path="/user">
-            <UserManage />
+            {user.email !== null ? <UserManage /> : <Login />}
           </Route>
 
           <Route path="/reservations">
-            <Reservations />
+            {user.email !== null ? <Reservations /> : <Login />}
           </Route>
 
           <Route path="/ads/edit/:id">
-            <ModalForm />
+            {user.email !== null ? <EditBookingForm /> : <Login />}
           </Route>
 
-          <Route path="/ads/add">
-            <AddNewCarAd />
+          <Route path="/ads/Car/add">
+            {user.email !== null ? <AddNewCarAd /> : <Login />}
+          </Route>
+
+          <Route path="/ads/:id/Booking/add">
+            {user.email !== null ? <AddNewAd /> : <Login />}
           </Route>
 
           <Route path="/ads">
-            <UserCarAds />
+            {user.email !== null ? <UserCarAds /> : <Login />}
           </Route>
 
           <Route path="/offer">

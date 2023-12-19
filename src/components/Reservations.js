@@ -4,9 +4,10 @@ import Moment from "react-moment";
 
 function Reservations() {
   const [reservations, setReservations] = useState([]);
+  const [status, setStatus] = useState([]);
 
   // cancel reservation
-  const deleteReservation = (id) => {
+  const cancelReservation = (id) => {
     fetch(`http://localhost:8080/bookings/cancel/${id}`, { method: "PUT" })
       .then(async (response) => {
         const data = await response.json();
@@ -26,9 +27,19 @@ function Reservations() {
     fetch("http://localhost:8080/bookings/all")
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         setReservations(result);
       });
+
+    fetch("http://localhost:8080/booking_status/all")
+      .then((res) => res.json())
+      .then((result) => {
+        setStatus(result);
+      });
+
+    for (let i = 0; i < reservations.length; i++) {
+      console.log(reservations[i]);
+      console.log(status[i]);
+    }
   }, []);
 
   return (
@@ -54,9 +65,13 @@ function Reservations() {
               <td>
                 <Moment format="YYYY/MM/DD">{reservation.endDate}</Moment>
               </td>
-              <Button onClick={() => deleteReservation(reservation.id)}>
-                Cancel
-              </Button>
+              {status[index].status !== "CANCEL" ? (
+                <Button onClick={() => cancelReservation(reservation.id)}>
+                  Cancel
+                </Button>
+              ) : (
+                <p>Canceled</p>
+              )}
             </tr>
           );
         })}

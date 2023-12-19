@@ -22,6 +22,7 @@ function Navbar() {
     if (user) {
       dispatch(
         setUserSignIn({
+          id: user.id,
           password: user.password,
           email: user.email,
           firstname: user.firstname,

@@ -4,41 +4,51 @@ import styled, { keyframes } from "styled-components";
 import { useHistory } from "react-router-dom";
 import { BeatLoader } from "react-spinners";
 
-function ModalForm() {
+function EditBookingForm() {
   const [isLoading, setIsLoading] = useState(false);
-  const [bookings, setBookings] = useState([]);
   const { id } = useParams();
   const history = useHistory();
-  const [editBooking, setEditBooking] = useState({
-    name: "",
-    model: "",
-    type: "Manual",
-    seats: "5",
-  });
+  const [editBooking, setEditBooking] = useState({});
 
   const handleChange = (event) => {
     setEditBooking({ ...editBooking, [event.target.name]: event.target.value });
     console.log(editBooking);
   };
 
-  const updateBooking = async (id) => {
+  const updateBooking = async () => {
     console.log("ok: ", editBooking);
-    // const response = await fetch(
-    //   `http://localhost:8080/bookings/update/${id}`
-    // ).then((res) => res.json());
 
-    setIsLoading(true);
-    setTimeout(() => {
-      history.push("/ads");
-    }, 1000);
+    try {
+      const response = await fetch(
+        `http://localhost:8080/bookings/update/${id}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(),
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        console.log(data.description);
+      }
+
+      setTimeout(() => {
+        console.log(data);
+        history.push("/ads");
+      }, 1000);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
-    fetch("http://localhost:8080/bookings/all")
+    fetch("http://localhost:8080/bookings/")
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
-        setBookings(result);
+        setEditBooking(result);
       });
   }, []);
 
@@ -101,7 +111,7 @@ function ModalForm() {
   );
 }
 
-export default ModalForm;
+export default EditBookingForm;
 
 const fadeIn = keyframes`
   from {

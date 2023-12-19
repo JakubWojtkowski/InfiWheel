@@ -7,43 +7,33 @@ function AddNewCarAd() {
   const [isLoading, setIsLoading] = useState(false);
   const history = useHistory();
   const [newCar, setNewCar] = useState({
-    id: 3,
     manufacturer: "",
-    ac: "KLIMA",
-    fuel_type: "",
-    vin_number: "1GNEK13ZX3R298984",
-    engine_capacity: "1900",
     model: "",
-    number_of_doors: 0,
-    number_of_seats: 0,
-    power: 0,
-    registration_number: "",
+    type: "",
     subtype: "sedan",
-    transmission: "",
     year_of_production: "",
-  });
-
-  const [newBooking, setNewBooking] = useState({
-    car: newCar,
-    user: { id: 6 },
-    startDate: "",
-    endDate: "",
+    engine_capacity: "1900",
+    power: "",
+    fuel_type: "",
+    transmission: "",
+    number_of_doors: 0,
+    number_of_seats: 5,
+    registration_plate: "OK BORO",
+    registration_number: "",
+    ac: "KLIMA",
+    vin_number: "1GNEK13ZX3R298984",
   });
 
   const handleChange = (event) => {
-    setNewCar({ ...newBooking });
+    const { name, value } = event.target;
 
-    setNewBooking((prevState) => ({
-      car: {
-        ...prevState.car,
-        [event.target.name]: event.target.value,
-      },
-      user: {},
-      startDate: "",
-      endDate: "",
-    }));
-
-    console.log(newBooking);
+    setNewCar((prevState) => {
+      return {
+        ...prevState,
+        [name]: value,
+      };
+    });
+    console.log(newCar);
   };
 
   // making POST request
@@ -51,28 +41,22 @@ function AddNewCarAd() {
     setIsLoading(true);
 
     try {
-      const res = await fetch(`http://localhost:8080/Car/add`, {
+      const response = await fetch(`http://localhost:8080/Car/add`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newBooking),
+        body: JSON.stringify(newCar),
       });
 
-      const response = await fetch(`http://localhost:8080/bookings/add`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newBooking),
-      });
       const data = await response.json();
 
       if (!response.ok) {
         console.log(data.description);
-      } else {
-        setTimeout(() => {
-          history.push("/ads");
-        }, 1000);
       }
 
-      console.log(data);
+      setTimeout(() => {
+        console.log(data);
+        history.push(`/ads/${data.id}/Booking/add`);
+      }, 1000);
     } catch (error) {
       console.log(error);
     }
@@ -81,7 +65,7 @@ function AddNewCarAd() {
   return (
     <Container>
       <Form>
-        <h1>Create an ad</h1>
+        <h1>Car Creator</h1>
         <label for="name">Name:</label>
         <input
           type="text"
@@ -102,12 +86,32 @@ function AddNewCarAd() {
           required
         />
 
-        <label for="name">Fuel type:</label>
+        <label for="name">Type type:</label>
+        <input
+          type="text"
+          placeholder="Type"
+          name="type"
+          value={newCar.type}
+          onChange={handleChange}
+          required
+        />
+
+        <label for="name">Fuel Type:</label>
         <input
           type="text"
           placeholder="Fuel type"
           name="fuel_type"
           value={newCar.fuel_type}
+          onChange={handleChange}
+          required
+        />
+
+        <label for="name">Year Of Prod.:</label>
+        <input
+          type="number"
+          placeholder="Year Of Prod."
+          name="year_of_production"
+          value={newCar.year_of_production}
           onChange={handleChange}
           required
         />

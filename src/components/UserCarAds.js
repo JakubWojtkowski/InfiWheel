@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-// import ModalForm from "./ModalForm";
 import Moment from "react-moment";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 
@@ -8,12 +7,8 @@ function UserCarAds() {
   // const [isPopUpOpen, setIsPopUpOpen] = useState(false);
   const [bookings, setBookings] = useState([]);
 
-  const remove = (id) => {
+  const removeCarAd = (id) => {
     console.log(id);
-  };
-
-  const addBooking = () => {
-    console.log("sss");
   };
 
   // fetching all the reservations
@@ -31,7 +26,7 @@ function UserCarAds() {
       <Wrapper>
         <Main>
           <Heading>Your car ads: {bookings.length}</Heading>
-          <Link to={"/ads/add"}>
+          <Link to={"/ads/Car/add"}>
             <ButtonAdd>Create new</ButtonAdd>
           </Link>
           <Cards>
@@ -51,7 +46,10 @@ function UserCarAds() {
                         <Text>
                           <h3>Nr. {booking.id}</h3>
                           <span>
-                            Name: {booking.car.manufacturer} {booking.car.model}
+                            Name:{" "}
+                            <b>
+                              {booking.car.manufacturer} {booking.car.model}
+                            </b>
                           </span>
                           <span>Type: {booking.car.transmission}</span>
                           <span>Seats: {booking.car.number_of_seats}</span>
@@ -67,7 +65,10 @@ function UserCarAds() {
                           <Link to={`ads/edit/${booking.id}`}>
                             <Button>Edit</Button>
                           </Link>
-                          <Button onClick={() => remove(booking.id)} remove>
+                          <Button
+                            onClick={() => removeCarAd(booking.id)}
+                            remove
+                          >
                             Remove
                           </Button>
                         </Buttons>

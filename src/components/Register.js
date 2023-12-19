@@ -1,14 +1,20 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import styled from "styled-components";
 
 function Register() {
+  const history = useHistory();
+
   const register = () => {
     fetch(`http://localhost:8080/User/add`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user),
-    }).then((res) => console.log(res));
+    }).then((res) =>
+      setTimeout(() => {
+        history.push("/login");
+      }, 1000)
+    );
   };
 
   const [user, setUser] = useState({
