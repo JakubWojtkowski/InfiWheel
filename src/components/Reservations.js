@@ -7,19 +7,25 @@ function Reservations() {
   const [status, setStatus] = useState([]);
 
   // cancel reservation
-  const cancelReservation = (id) => {
-    fetch(`http://localhost:8080/bookings/cancel/${id}`, { method: "PUT" })
-      .then(async (response) => {
-        const data = await response.json();
-
-        if (!response.ok) {
-          const error = (data && data.message) || response.status;
-          return Promise.reject(error);
+  const cancelReservation = async (id) => {
+    try {
+      const response = await fetch(
+        `http://localhost:8080/bookings/cancel/${id}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(),
         }
-      })
-      .catch((error) => {
-        console.error("There was an error!", error);
-      });
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        console.log(data.description);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   // fetching all the reservations

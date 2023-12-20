@@ -1,8 +1,95 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { selectUser } from "../features/user/userSlice";
 
 function Offer() {
   const [cars, setCars] = useState([]);
+  const user = useSelector(selectUser);
+  const [reservation, setReservation] = useState();
+  const [newBooking, setNewBooking] = useState({
+    car: "",
+    user: user,
+    startDate: new Date().toLocaleDateString("fr-CA", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    }),
+    endDate: new Date().toLocaleDateString("fr-CA", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    }),
+  });
+
+  const [display, setDisplay] = useState(false);
+  const [date, setDate] = useState({
+    min: new Date().toLocaleDateString("fr-CA", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    }),
+
+    max: "2024-01-30",
+  });
+
+  // handlers
+
+  const handleClick = (id) => {
+    setDisplay(true);
+    getCar(id);
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setNewBooking((prevState) => {
+      return {
+        ...prevState,
+        [name]: value,
+      };
+    });
+  };
+
+  // creating reservation
+
+  const getCar = (id) => {
+    fetch(`http://localhost:8080/Car/find/${id}`)
+      .then((res) => res.json())
+      .then((result) => {
+        setNewBooking({
+          ...newBooking,
+          car: result,
+        });
+        console.log(result);
+      });
+  };
+
+  const createReservation = async (id) => {
+    setDisplay(false);
+    if (user.email === null) return;
+
+    if (newBooking.car.manufacturer !== "") {
+      try {
+        const response = await fetch(`http://localhost:8080/bookings/add`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(newBooking),
+        });
+
+        console.log(response);
+
+        const data = await response.json();
+        if (!response.ok) {
+          console.log(data.description);
+        }
+        setTimeout(() => {
+          console.log(data);
+        }, 1000);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
 
   useEffect(() => {
     fetch("http://localhost:8080/Car/all")
@@ -12,9 +99,11 @@ function Offer() {
       });
   }, []);
 
+  console.log(newBooking);
+
   return (
     <Container>
-      <Heading>Our fleet</Heading>
+      <Heading>Our Fleet</Heading>
       <Main>
         <Header>
           <Filter>Filter by:</Filter>
@@ -29,9 +118,9 @@ function Offer() {
         </Header>
 
         <Cars>
-          {cars?.map((car) => {
+          {cars?.map((car, index) => {
             return (
-              <CarCard key={car.id}>
+              <CarCard key={index}>
                 <Image>
                   <img
                     src="https://purepng.com/public/uploads/large/purepng.com-white-fiat-500-carcarvehicletransportfiat-961524650065dsyyk.png"
@@ -45,6 +134,47 @@ function Offer() {
                     {car.fuel_type}
                   </Desc>
                 </Content>
+
+                {display && (
+                  <>
+                    <label for="start">Start date:</label>
+
+                    <input
+                      type="date"
+                      id="startDate"
+                      name="startDate"
+                      min={date.min}
+                      max={date.max}
+                      onChange={handleChange}
+                    />
+
+                    <label for="start">End date:</label>
+
+                    <input
+                      type="date"
+                      id="endDate"
+                      name="endDate"
+                      min={date.min}
+                      max={date.max}
+                      onChange={handleChange}
+                    />
+                  </>
+                )}
+                {display && (
+                  <Button cancel onClick={() => setDisplay(false)}>
+                    Cancel
+                  </Button>
+                )}
+
+                <Button
+                  onClick={() => {
+                    display === false
+                      ? handleClick(car.id)
+                      : createReservation(car.id);
+                  }}
+                >
+                  {display === false ? "Choose date" : "Reserve"}
+                </Button>
               </CarCard>
             );
           })}
@@ -137,10 +267,13 @@ const Cars = styled.div`
 const CarCard = styled.div`
   padding: 10px;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 
   &:hover {
     box-shadow: rgba(27, 31, 35, 0.1) 0px 2px 3px,
-    rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+      rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
   }
 `;
 
@@ -156,7 +289,10 @@ const Image = styled.div`
   }
 `;
 
-const Content = styled.div``;
+const Content = styled.div`
+  flex: 1;
+  gap: 4px;
+`;
 
 const Title = styled.h3`
   text-transform: uppercase;
@@ -164,4 +300,20 @@ const Title = styled.h3`
 
 const Desc = styled.span`
   margin-top: 8px;
+  opacity: 0.65;
+`;
+
+const Button = styled.button`
+  padding: 12px 24px;
+  border-radius: 12px;
+  background: ${(props) => (props.cancel ? "" : "#fca311")};
+  border: 1px solid #14213d;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 8px;
+  transition: all 250ms ease-in-out;
+
+  &:hover {
+    border-radius: 24px;
+  }
 `;
